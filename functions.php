@@ -604,80 +604,130 @@ function hackernull_scripts() {
             z-index: 2 !important;
         }
 
+        .site-branding {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 0.5rem !important;
+            padding: 1rem !important;
+            position: relative !important;
+        }
+
+        .site-branding::before {
+            content: '> ' !important;
+            color: var(--primary) !important;
+            font-family: 'Courier New', monospace !important;
+            font-size: 2rem !important;
+            position: absolute !important;
+            left: 0 !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            opacity: 0.7 !important;
+            text-shadow: 0 0 5px var(--primary) !important;
+        }
+
+        .site-title {
+            font-size: 2.2rem !important;
+            font-family: 'Courier New', monospace !important;
+            font-weight: bold !important;
+            margin: 0 !important;
+            padding-left: 2.5rem !important;
+            position: relative !important;
+        }
+
         .site-title a {
             color: var(--primary) !important;
             text-decoration: none !important;
             text-transform: uppercase !important;
             letter-spacing: 2px !important;
             position: relative !important;
-            padding: 0.5rem 1rem !important;
-            background: transparent !important;
-            transition: all 0.3s ease !important;
             display: inline-block !important;
+            padding: 0.5rem 1rem !important;
             text-shadow: 0 0 10px var(--primary) !important;
-            animation: logoGlow 4s ease-in-out infinite !important;
-        }
-
-        @keyframes logoGlow {
-            0% {
-                text-shadow: 0 0 10px var(--primary) !important;
-            }
-            50% {
-                text-shadow: 
-                    0 0 10px var(--primary),
-                    0 0 20px var(--primary-glow) !important;
-            }
-            100% {
-                text-shadow: 0 0 10px var(--primary) !important;
-            }
-        }
-
-        .site-title a::before {
-            content: '' !important;
-            position: absolute !important;
-            top: 0 !important;
-            left: -10px !important;
-            width: 2px !important;
-            height: 100% !important;
-            background: var(--primary) !important;
-            box-shadow: 0 0 10px var(--primary) !important;
-            animation: barPulse 4s ease-in-out infinite !important;
+            opacity: 0 !important;
+            animation: typeWriter 3s steps(10) forwards !important;
         }
 
         .site-title a::after {
-            content: '' !important;
+            content: '_' !important;
             position: absolute !important;
-            top: 0 !important;
-            right: -10px !important;
-            width: 2px !important;
-            height: 100% !important;
-            background: var(--primary) !important;
-            box-shadow: 0 0 10px var(--primary) !important;
-            animation: barPulse 4s ease-in-out infinite !important;
-            animation-delay: 0.5s !important;
+            right: -0.5rem !important;
+            animation: blink 1s step-end infinite !important;
         }
 
-        @keyframes barPulse {
-            0% {
-                height: 100% !important;
-                opacity: 0.5 !important;
-            }
-            50% {
-                height: 70% !important;
+        @keyframes typeWriter {
+            from {
+                width: 0 !important;
                 opacity: 1 !important;
             }
-            100% {
-                height: 100% !important;
-                opacity: 0.5 !important;
+            to {
+                width: 100% !important;
+                opacity: 1 !important;
+            }
+        }
+
+        @keyframes blink {
+            50% { opacity: 0 !important; }
+        }
+
+        .site-description {
+            display: block !important;
+            color: var(--text-secondary) !important;
+            font-family: 'Courier New', monospace !important;
+            font-size: 0.9rem !important;
+            opacity: 0 !important;
+            transform: translateY(-1rem) !important;
+            animation: fadeInUp 0.5s ease-out 3s forwards !important;
+            text-align: center !important;
+            max-width: none !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
             }
         }
 
         .site-title a:hover {
-            letter-spacing: 3px !important;
             text-shadow: 
                 0 0 10px var(--primary),
                 0 0 20px var(--primary-glow),
                 0 0 30px var(--primary-glow) !important;
+        }
+
+        /* Optional Glitch Effect - Uncomment to enable */
+        .site-title a.glitch {
+            animation: glitch 0.5s ease-out infinite !important;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0) !important;
+                text-shadow: 0 0 10px var(--primary) !important;
+            }
+            20% {
+                transform: translate(-2px, 2px) !important;
+                text-shadow: 2px 0 10px var(--primary) !important;
+            }
+            40% {
+                transform: translate(-2px, -2px) !important;
+                text-shadow: 2px 2px 10px var(--primary) !important;
+            }
+            60% {
+                transform: translate(2px, 2px) !important;
+                text-shadow: -2px 0 10px var(--primary) !important;
+            }
+            80% {
+                transform: translate(2px, -2px) !important;
+                text-shadow: -2px -2px 10px var(--primary) !important;
+            }
+            100% {
+                transform: translate(0) !important;
+                text-shadow: 0 0 10px var(--primary) !important;
+            }
         }
 
         .site-description {
