@@ -567,23 +567,31 @@ function hackernull_scripts() {
             opacity: 0.5 !important;
         }
 
-        .site-header .container {
+        .site-header {
+            position: relative !important;
+            min-height: 80px !important;
             display: flex !important;
             justify-content: center !important;
             align-items: center !important;
-            position: relative !important;
             padding: 1rem !important;
-            min-height: 80px !important;
+        }
+
+        .site-header .container {
+            width: 100% !important;
+            max-width: 1400px !important;
+            position: relative !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
         }
 
         .site-branding {
-            position: absolute !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
             gap: 0.5rem !important;
+            position: relative !important;
+            z-index: 2 !important;
         }
 
         .site-title {
@@ -687,12 +695,13 @@ function hackernull_scripts() {
 
         .main-navigation {
             position: absolute !important;
-            right: 2rem !important;
+            right: 0 !important;
             top: 50% !important;
             transform: translateY(-50%) !important;
             display: flex !important;
             align-items: center !important;
             gap: 2rem !important;
+            z-index: 1 !important;
         }
 
         .nav-menu {
@@ -739,10 +748,11 @@ function hackernull_scripts() {
 
         .search-box {
             position: absolute !important;
-            left: 2rem !important;
+            left: 0 !important;
             top: 50% !important;
             transform: translateY(-50%) !important;
             width: 200px !important;
+            z-index: 1 !important;
         }
 
         .search-box input.search-field {
