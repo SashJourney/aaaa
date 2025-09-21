@@ -509,6 +509,169 @@ function hackernull_scripts() {
             margin: 0 auto !important;
             padding: 0 2rem !important;
         }
+
+        /* Header Styles */
+        .site-header {
+            background: rgba(0, 0, 0, 0.8) !important;
+            padding: 1rem 0 !important;
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 1000 !important;
+            border-bottom: 1px solid var(--border-color) !important;
+            backdrop-filter: blur(10px) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        .site-header::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            height: 1px !important;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--primary), 
+                transparent
+            ) !important;
+            opacity: 0.5 !important;
+        }
+
+        .site-header .container {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            position: relative !important;
+        }
+
+        .site-branding {
+            display: flex !important;
+            align-items: center !important;
+            gap: 1rem !important;
+        }
+
+        .site-title {
+            font-size: 1.8rem !important;
+            font-family: 'Courier New', monospace !important;
+            font-weight: bold !important;
+            margin: 0 !important;
+            position: relative !important;
+            display: inline-block !important;
+        }
+
+        .site-title a {
+            color: var(--primary) !important;
+            text-decoration: none !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important;
+            position: relative !important;
+            padding: 0.5rem 1rem !important;
+            background: rgba(0, 255, 0, 0.05) !important;
+            border-radius: 4px !important;
+            border: 1px solid var(--border-color) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .site-title a::before {
+            content: '[' !important;
+            color: var(--primary) !important;
+            margin-right: 0.5rem !important;
+            opacity: 0.7 !important;
+        }
+
+        .site-title a::after {
+            content: ']' !important;
+            color: var(--primary) !important;
+            margin-left: 0.5rem !important;
+            opacity: 0.7 !important;
+        }
+
+        .site-title a:hover {
+            text-shadow: var(--glow) !important;
+            border-color: var(--primary) !important;
+            box-shadow: var(--glow) !important;
+        }
+
+        .site-description {
+            font-size: 0.9rem !important;
+            color: var(--text-secondary) !important;
+            margin: 0 !important;
+            font-family: 'Courier New', monospace !important;
+            max-width: 300px !important;
+            position: relative !important;
+            padding-left: 1rem !important;
+            border-left: 1px solid var(--border-color) !important;
+        }
+
+        .main-navigation {
+            margin-left: auto !important;
+        }
+
+        .nav-menu {
+            display: flex !important;
+            gap: 1.5rem !important;
+            list-style: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .nav-menu li a {
+            color: var(--text-primary) !important;
+            text-decoration: none !important;
+            font-family: 'Courier New', monospace !important;
+            font-size: 0.9rem !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 4px !important;
+            transition: all 0.3s ease !important;
+            border: 1px solid transparent !important;
+        }
+
+        .nav-menu li a:hover {
+            color: var(--primary) !important;
+            background: rgba(0, 255, 0, 0.05) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        .search-box {
+            margin-left: 2rem !important;
+            position: relative !important;
+        }
+
+        .search-box input[type="search"] {
+            background: rgba(0, 0, 0, 0.3) !important;
+            border: 1px solid var(--border-color) !important;
+            color: var(--text-primary) !important;
+            padding: 0.5rem 1rem !important;
+            padding-left: 2.5rem !important;
+            border-radius: 4px !important;
+            font-family: 'Courier New', monospace !important;
+            font-size: 0.9rem !important;
+            width: 200px !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .search-box::before {
+            content: '>' !important;
+            position: absolute !important;
+            left: 1rem !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            color: var(--primary) !important;
+            font-family: 'Courier New', monospace !important;
+            opacity: 0.7 !important;
+        }
+
+        .search-box input[type="search"]:focus {
+            width: 300px !important;
+            border-color: var(--primary) !important;
+            box-shadow: var(--glow) !important;
+            outline: none !important;
+        }
+
+        .search-box input[type="search"]::placeholder {
+            color: var(--text-secondary) !important;
+            opacity: 0.7 !important;
+        }
             --glow: 0 0 10px rgba(0, 255, 0, 0.2);
             --glow-strong: 0 0 20px rgba(0, 255, 0, 0.4);
             --terminal-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
