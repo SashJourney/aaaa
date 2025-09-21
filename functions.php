@@ -32,6 +32,7 @@ add_action('after_setup_theme', 'hackernull_theme_setup');
 function hackernull_scripts() {
     // Styles
     wp_enqueue_style('hackernull-style', get_stylesheet_uri(), array(), '1.0.1');
+    wp_enqueue_style('hackernull-animation', get_template_directory_uri() . '/animation.css', array(), '1.0.0');
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css', array(), '6.0.0');
     
     // Add inline CSS to ensure styles are loaded
@@ -648,11 +649,11 @@ function hackernull_scripts() {
                 0 0 92px var(--primary),
                 0 0 102px var(--primary),
                 0 0 151px var(--primary) !important;
-            animation: powerFlicker 5s infinite !important;
+            animation: quickFlicker 1s infinite !important;
         }
 
-        /* Power flicker effect */
-        @keyframes powerFlicker {
+        /* Quick power flicker effect */
+        @keyframes quickFlicker {
             0%, 100% {
                 opacity: 1 !important;
                 text-shadow: 
@@ -665,7 +666,7 @@ function hackernull_scripts() {
                     0 0 102px var(--primary),
                     0 0 151px var(--primary) !important;
             }
-            35.1% {
+            49.9% {
                 opacity: 1 !important;
                 text-shadow: 
                     0 0 7px #fff,
@@ -677,11 +678,11 @@ function hackernull_scripts() {
                     0 0 102px var(--primary),
                     0 0 151px var(--primary) !important;
             }
-            35.5% {
-                opacity: 0.1 !important;
+            25% {
+                opacity: 0 !important;
                 text-shadow: none !important;
             }
-            35.7% {
+            25.1% {
                 opacity: 1 !important;
                 text-shadow: 
                     0 0 7px #fff,
@@ -749,7 +750,7 @@ function hackernull_scripts() {
             height: 2px !important;
             background: var(--primary) !important;
             transform-origin: center !important;
-            animation: powerFlicker 5s infinite !important;
+            animation: quickFlicker 1s infinite !important;
             box-shadow:
                 0 0 7px #fff,
                 0 0 10px #fff,

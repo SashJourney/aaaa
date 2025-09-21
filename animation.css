@@ -1,0 +1,13 @@
+@keyframes powerFlicker {
+    0%, 100% { opacity: 1; }
+    49% { opacity: 1; }
+    50% { opacity: 0; }
+    51% { opacity: 1; }
+    52% { opacity: 0; }
+    53% { opacity: 1; }
+}
+
+.site-title a {
+    font-style: italic !important;
+    animation: powerFlicker 1s infinite !important;
+}
