@@ -74,12 +74,16 @@ function hackernull_scripts() {
             grid-template-columns: repeat(3, 1fr) !important;
             gap: 1.5rem !important;
             position: relative !important;
-            margin-bottom: 3rem !important;
+            margin: 2rem 0 3rem !important;
+            max-width: 1200px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding: 0 1rem !important;
         }
 
         .category-card {
-            background: var(--bg-card) !important;
-            padding: 1.25rem !important;
+            background: rgba(0, 0, 0, 0.6) !important;
+            padding: 1.5rem !important;
             border-radius: 8px !important;
             text-decoration: none !important;
             color: var(--text-primary) !important;
@@ -91,9 +95,10 @@ function hackernull_scripts() {
             text-align: center !important;
             position: relative !important;
             overflow: hidden !important;
-            min-height: 160px !important;
-            justify-content: center !important;
+            min-height: 180px !important;
+            justify-content: flex-start !important;
             backdrop-filter: blur(10px) !important;
+            gap: 0.75rem !important;
         }
 
         .category-card::before {
@@ -207,10 +212,51 @@ function hackernull_scripts() {
             font-size: 0.8rem !important;
         }
 
+        .category-content {
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            gap: 0.75rem !important;
+            width: 100% !important;
+        }
+
+        .category-content h3 {
+            font-size: 1rem !important;
+            margin: 0 !important;
+            color: var(--primary) !important;
+            font-family: 'Courier New', monospace !important;
+            position: relative !important;
+            display: inline-block !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            font-weight: bold !important;
+        }
+
+        .category-description {
+            color: var(--text-secondary) !important;
+            font-size: 0.85rem !important;
+            line-height: 1.4 !important;
+            font-family: 'Courier New', monospace !important;
+            display: -webkit-box !important;
+            -webkit-line-clamp: 2 !important;
+            -webkit-box-orient: vertical !important;
+            overflow: hidden !important;
+            text-align: center !important;
+            margin: 0 !important;
+            max-width: 90% !important;
+        }
+
         .category-meta {
             display: flex !important;
-            justify-content: space-between !important;
+            justify-content: center !important;
             align-items: center !important;
+            gap: 1rem !important;
+            width: 100% !important;
+            margin-top: auto !important;
+            border-top: 1px solid var(--border-color) !important;
+            padding-top: 0.75rem !important;
             margin-top: 1rem !important;
             font-family: 'Courier New', monospace !important;
         }
@@ -281,10 +327,14 @@ function hackernull_scripts() {
             grid-template-columns: repeat(3, 1fr) !important;
             gap: 1.5rem !important;
             margin-bottom: 2rem !important;
+            max-width: 1200px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding: 0 1rem !important;
         }
 
         .post-card {
-            background: var(--bg-card) !important;
+            background: rgba(0, 0, 0, 0.6) !important;
             border-radius: var(--border-radius) !important;
             overflow: hidden !important;
             transition: all 0.3s ease !important;
@@ -293,13 +343,15 @@ function hackernull_scripts() {
             height: 100% !important;
             display: flex !important;
             flex-direction: column !important;
+            backdrop-filter: blur(10px) !important;
         }
 
         .post-image {
             position: relative !important;
-            padding-top: 45% !important; /* Shorter aspect ratio */
+            padding-top: 56.25% !important; /* 16:9 aspect ratio */
             overflow: hidden !important;
             flex-shrink: 0 !important;
+            background: rgba(0, 0, 0, 0.2) !important;
         }
 
         .post-image img {
@@ -310,6 +362,13 @@ function hackernull_scripts() {
             height: 100% !important;
             object-fit: cover !important;
             transition: transform 0.3s ease !important;
+            display: block !important;
+        }
+
+        .post-image a {
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
         }
 
         .post-categories {
