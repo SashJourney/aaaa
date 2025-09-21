@@ -9,3 +9,15 @@ License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: hackernull-theme
 */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 40px auto;
+    line-height: 1.6;
+    padding: 0 20px;
+}
+
+header {
+    border-bottom: 2px solid #eee;
+    margin-bottom: 20px;
+}
