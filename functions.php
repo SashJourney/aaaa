@@ -608,60 +608,138 @@ function hackernull_scripts() {
             display: flex !important;
             justify-content: center !important;
             align-items: center !important;
-            padding: 1rem !important;
-            background: rgba(0, 0, 0, 0.8) !important;
+            padding: 1.5rem !important;
+            background: rgba(0, 0, 0, 0.9) !important;
             position: relative !important;
             z-index: 100 !important;
+            overflow: hidden !important;
         }
 
         .site-branding {
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
-            gap: 0.75rem !important;
-            padding: 1rem 2rem !important;
             position: relative !important;
-            background: rgba(0, 0, 0, 0.4) !important;
-            border: 1px solid rgba(0, 255, 0, 0.1) !important;
-            border-radius: 4px !important;
-        }
-
-        .site-branding::before {
-            content: '> ' !important;
-            color: var(--primary) !important;
-            font-family: 'Courier New', monospace !important;
-            font-size: 2rem !important;
-            position: absolute !important;
-            left: 1rem !important;
-            top: 50% !important;
-            transform: translateY(-50%) !important;
-            opacity: 0.7 !important;
-            text-shadow: 0 0 5px var(--primary) !important;
         }
 
         .site-title {
-            font-size: 2.2rem !important;
+            font-size: 2.5rem !important;
             font-family: 'Courier New', monospace !important;
             font-weight: bold !important;
             margin: 0 !important;
-            padding-left: 3rem !important;
             position: relative !important;
-            min-width: 300px !important;
+            z-index: 2 !important;
         }
 
         .site-title a {
-            color: var(--primary) !important;
+            color: #fff !important;
             text-decoration: none !important;
             text-transform: uppercase !important;
             letter-spacing: 2px !important;
             position: relative !important;
             display: inline-block !important;
-            padding: 0.5rem 1rem !important;
-            text-shadow: 0 0 10px var(--primary) !important;
-            white-space: nowrap !important;
-            overflow: hidden !important;
-            border-right: 2px solid var(--primary) !important;
-            animation: typing 3.5s steps(20, end), blink-caret .75s step-end infinite !important;
+            padding: 0.5rem !important;
+            text-shadow: 
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff,
+                0 0 42px var(--primary),
+                0 0 82px var(--primary),
+                0 0 92px var(--primary),
+                0 0 102px var(--primary),
+                0 0 151px var(--primary) !important;
+            animation: flicker 3s infinite alternate !important;
+        }
+
+        /* Electric effect */
+        @keyframes flicker {
+            0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+                opacity: 0.99 !important;
+                text-shadow: 
+                    0 0 4px #fff,
+                    0 0 11px #fff,
+                    0 0 19px #fff,
+                    0 0 40px var(--primary),
+                    0 0 80px var(--primary),
+                    0 0 90px var(--primary),
+                    0 0 100px var(--primary),
+                    0 0 150px var(--primary) !important;
+            }
+            20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+                opacity: 0.4 !important;
+                text-shadow: none !important;
+            }
+        }
+
+        /* Electric lines */
+        .site-title::before,
+        .site-title::after {
+            content: '' !important;
+            position: absolute !important;
+            top: 50% !important;
+            width: 100px !important;
+            height: 3px !important;
+            background: var(--primary) !important;
+            transform-origin: center !important;
+            animation: electric-line 2s infinite !important;
+            box-shadow:
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff,
+                0 0 42px var(--primary),
+                0 0 82px var(--primary),
+                0 0 92px var(--primary) !important;
+        }
+
+        .site-title::before {
+            left: -110px !important;
+            transform: translateY(-50%) !important;
+        }
+
+        .site-title::after {
+            right: -110px !important;
+            transform: translateY(-50%) !important;
+        }
+
+        @keyframes electric-line {
+            0% {
+                opacity: 1 !important;
+                transform: translateY(-50%) scaleX(1) !important;
+            }
+            50% {
+                opacity: 0.5 !important;
+                transform: translateY(-50%) scaleX(0.8) !important;
+            }
+            100% {
+                opacity: 1 !important;
+                transform: translateY(-50%) scaleX(1) !important;
+            }
+        }
+
+        /* Electricity particles */
+        .site-title a::before,
+        .site-title a::after {
+            content: '' !important;
+            position: absolute !important;
+            width: 100% !important;
+            height: 100% !important;
+            top: 0 !important;
+            left: 0 !important;
+            background: radial-gradient(
+                circle at var(--x, 50%) var(--y, 50%),
+                rgba(0, 255, 0, 0.2) 0%,
+                transparent 50%
+            ) !important;
+            animation: move-glow 4s infinite !important;
+            z-index: -1 !important;
+        }
+
+        @keyframes move-glow {
+            0% { --x: 0%; --y: 0%; }
+            25% { --x: 100%; --y: 0%; }
+            50% { --x: 100%; --y: 100%; }
+            75% { --x: 0%; --y: 100%; }
+            100% { --x: 0%; --y: 0%; }
         }
 
         @keyframes typing {
@@ -680,24 +758,32 @@ function hackernull_scripts() {
 
         .site-description {
             display: block !important;
-            color: var(--text-secondary) !important;
+            color: rgba(255, 255, 255, 0.8) !important;
             font-family: 'Courier New', monospace !important;
             font-size: 0.9rem !important;
             opacity: 0 !important;
-            margin-top: 0.5rem !important;
-            animation: fadeIn 0.5s ease-out 3.5s forwards !important;
+            margin-top: 1rem !important;
+            animation: tagline-glow 3s ease-out 0.5s forwards !important;
             text-align: center !important;
             max-width: none !important;
             padding: 0.25rem 1rem !important;
             border: none !important;
-            background: rgba(0, 255, 0, 0.05) !important;
-            border-radius: 2px !important;
             letter-spacing: 1px !important;
+            text-transform: uppercase !important;
+            position: relative !important;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
         }
 
-        @keyframes fadeIn {
-            to {
+        @keyframes tagline-glow {
+            0% {
+                opacity: 0 !important;
+                text-shadow: none !important;
+            }
+            100% {
                 opacity: 0.8 !important;
+                text-shadow: 
+                    0 0 4px rgba(255, 255, 255, 0.5),
+                    0 0 8px var(--primary-glow) !important;
             }
         }
 
