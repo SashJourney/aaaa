@@ -568,78 +568,98 @@ function hackernull_scripts() {
         }
 
         .site-header .container {
-            display: flex !important;
+            display: grid !important;
+            grid-template-columns: 1fr auto 1fr !important;
             align-items: center !important;
-            justify-content: space-between !important;
+            gap: 2rem !important;
             position: relative !important;
+            padding: 1rem 2rem !important;
         }
 
         .site-branding {
+            grid-column: 2 !important;
             display: flex !important;
+            flex-direction: column !important;
             align-items: center !important;
-            gap: 1rem !important;
+            gap: 0.5rem !important;
+            position: relative !important;
         }
 
         .site-title {
-            font-size: 1.8rem !important;
+            font-size: 2rem !important;
             font-family: 'Courier New', monospace !important;
             font-weight: bold !important;
             margin: 0 !important;
             position: relative !important;
             display: inline-block !important;
+            z-index: 2 !important;
         }
 
         .site-title a {
             color: var(--primary) !important;
             text-decoration: none !important;
             text-transform: uppercase !important;
-            letter-spacing: 2px !important;
+            letter-spacing: 3px !important;
             position: relative !important;
-            padding: 0.5rem 1rem !important;
+            padding: 0.75rem 1.5rem !important;
             background: rgba(0, 255, 0, 0.05) !important;
             border-radius: 4px !important;
             border: 1px solid var(--border-color) !important;
             transition: all 0.3s ease !important;
+            display: inline-block !important;
+            text-shadow: 0 0 10px var(--primary) !important;
+        }
+
+        .site-title a::before,
+        .site-title a::after {
+            content: '' !important;
+            position: absolute !important;
+            top: -2px !important;
+            bottom: -2px !important;
+            width: 2px !important;
+            background: var(--primary) !important;
+            box-shadow: 0 0 10px var(--primary) !important;
+            transition: all 0.3s ease !important;
         }
 
         .site-title a::before {
-            content: '[' !important;
-            color: var(--primary) !important;
-            margin-right: 0.5rem !important;
-            opacity: 0.7 !important;
+            left: -2px !important;
+            transform: scaleY(0.7) !important;
         }
 
         .site-title a::after {
-            content: ']' !important;
-            color: var(--primary) !important;
-            margin-left: 0.5rem !important;
-            opacity: 0.7 !important;
+            right: -2px !important;
+            transform: scaleY(0.7) !important;
+        }
+
+        .site-title a:hover::before,
+        .site-title a:hover::after {
+            transform: scaleY(1) !important;
         }
 
         .site-title a:hover {
-            text-shadow: var(--glow) !important;
+            text-shadow: 0 0 20px var(--primary) !important;
             border-color: var(--primary) !important;
-            box-shadow: var(--glow) !important;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2) !important;
+            background: rgba(0, 255, 0, 0.1) !important;
+            letter-spacing: 4px !important;
         }
 
         .site-description {
-            font-size: 0.9rem !important;
-            color: var(--text-secondary) !important;
-            margin: 0 !important;
-            font-family: 'Courier New', monospace !important;
-            max-width: 300px !important;
-            position: relative !important;
-            padding-left: 1rem !important;
-            border-left: 1px solid var(--border-color) !important;
+            display: none !important;
         }
 
         .main-navigation {
-            margin-left: auto !important;
+            grid-column: 3 !important;
+            justify-self: end !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 2rem !important;
         }
 
         .nav-menu {
             display: flex !important;
-            gap: 1.5rem !important;
+            gap: 1rem !important;
             list-style: none !important;
             margin: 0 !important;
             padding: 0 !important;
@@ -654,53 +674,76 @@ function hackernull_scripts() {
             border-radius: 4px !important;
             transition: all 0.3s ease !important;
             border: 1px solid transparent !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+
+        .nav-menu li a::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: linear-gradient(45deg, transparent, var(--primary-glow), transparent) !important;
+            transform: translateX(-100%) !important;
+            transition: transform 0.3s ease !important;
         }
 
         .nav-menu li a:hover {
             color: var(--primary) !important;
-            background: rgba(0, 255, 0, 0.05) !important;
             border-color: var(--border-color) !important;
         }
 
+        .nav-menu li a:hover::before {
+            transform: translateX(100%) !important;
+        }
+
         .search-box {
-            margin-left: 2rem !important;
             position: relative !important;
+            width: 200px !important;
+            grid-column: 1 !important;
+            justify-self: start !important;
         }
 
         .search-box input.search-field {
             background: rgba(0, 0, 0, 0.3) !important;
             border: 1px solid var(--border-color) !important;
             color: var(--text-primary) !important;
-            padding: 0.5rem 1rem !important;
-            padding-left: 2.5rem !important;
+            padding: 0.35rem 1rem !important;
+            padding-left: 2rem !important;
             border-radius: 4px !important;
             font-family: 'Courier New', monospace !important;
-            font-size: 0.9rem !important;
-            width: 200px !important;
+            font-size: 0.85rem !important;
+            width: 180px !important;
             transition: all 0.3s ease !important;
         }
 
         .search-box::before {
             content: '>' !important;
             position: absolute !important;
-            left: 1rem !important;
+            left: 0.75rem !important;
             top: 50% !important;
             transform: translateY(-50%) !important;
             color: var(--primary) !important;
             font-family: 'Courier New', monospace !important;
             opacity: 0.7 !important;
+            font-size: 0.85rem !important;
+            pointer-events: none !important;
         }
 
         .search-box input.search-field:focus {
-            width: 300px !important;
+            width: 240px !important;
             border-color: var(--primary) !important;
-            box-shadow: var(--glow) !important;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.15) !important;
             outline: none !important;
+            background: rgba(0, 0, 0, 0.5) !important;
         }
 
         .search-box input.search-field::placeholder {
             color: var(--text-secondary) !important;
-            opacity: 0.7 !important;
+            opacity: 0.5 !important;
+            font-size: 0.85rem !important;
         }
 
         @keyframes scanline {
