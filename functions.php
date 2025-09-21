@@ -667,7 +667,7 @@ function hackernull_scripts() {
             position: relative !important;
         }
 
-        .search-box input[type="search"] {
+        .search-box input.search-field {
             background: rgba(0, 0, 0, 0.3) !important;
             border: 1px solid var(--border-color) !important;
             color: var(--text-primary) !important;
@@ -691,14 +691,14 @@ function hackernull_scripts() {
             opacity: 0.7 !important;
         }
 
-        .search-box input[type="search"]:focus {
+        .search-box input.search-field:focus {
             width: 300px !important;
             border-color: var(--primary) !important;
             box-shadow: var(--glow) !important;
             outline: none !important;
         }
 
-        .search-box input[type="search"]::placeholder {
+        .search-box input.search-field::placeholder {
             color: var(--text-secondary) !important;
             opacity: 0.7 !important;
         }
