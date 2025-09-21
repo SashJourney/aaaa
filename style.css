@@ -1,63 +1,34 @@
 /*
 Theme Name: Hackernull Theme
-Theme URI: https://hackernull.com
-Author: SashJourney
-Description: A dark, modern theme for Hackernull News
+Author: Hackernull
+Description: Custom theme for HackerNull News
 Version: 1.0
 */
 
-/* Reset */
+/* Global reset */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
     background: #111;
     color: #eee;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     line-height: 1.6;
-}
-
-a {
-    color: #9a6bff;
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
 }
 
 /* Header */
 header {
     background: #000;
-    padding: 20px;
+    color: #fff;
     text-align: center;
-    border-bottom: 2px solid #222;
+    padding: 30px 10px;
 }
-
 header h1 {
     margin: 0;
-    font-size: 2.5rem;
-    color: #9a6bff;
+    color: #9f7aea; /* purple accent */
 }
-
 header p {
-    margin: 5px 0 0;
+    font-size: 1.2em;
     color: #bbb;
-}
-
-/* Hero section */
-.hero {
-    text-align: center;
-    padding: 40px 20px;
-    background: #1a1a1a;
-}
-
-.hero h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-.hero p {
-    color: #ccc;
 }
 
 /* Post grid */
@@ -67,40 +38,48 @@ header p {
     gap: 20px;
     padding: 20px;
 }
-
 .post-grid article {
     background: #1a1a1a;
     padding: 15px;
     border-radius: 6px;
     transition: transform 0.2s ease-in-out;
 }
-
 .post-grid article:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
 }
-
 .post-grid img {
     max-width: 100%;
     border-radius: 6px;
-    margin-bottom: 10px;
+}
+
+/* Newsletter */
+.newsletter {
+    text-align: center;
+    padding: 30px;
+    background: #000;
+}
+.newsletter input[type="email"] {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+}
+.newsletter button {
+    padding: 10px 15px;
+    background: #9f7aea;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.newsletter button:hover {
+    background: #7b61c2;
 }
 
 /* Footer */
 footer {
     background: #000;
-    padding: 30px;
-    text-align: center;
     color: #888;
-}
-
-footer input,
-footer button {
-    padding: 10px;
-    margin: 5px;
-}
-
-/* Debug test override */
-body.debug {
-    background: #111 !important;
-    color: #0f0 !important;
+    text-align: center;
+    padding: 20px;
 }
