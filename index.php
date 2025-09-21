@@ -59,7 +59,14 @@
                         <i class="fas <?php echo $cat['icon']; ?>"></i>
                         <h3><?php echo $cat['name']; ?></h3>
                         <span class="post-count">
-                            <?php echo get_category(get_cat_ID($cat['name']))->count; ?> posts
+                            <?php 
+                            $category = get_category(get_cat_ID($cat['name']));
+                            if (!is_wp_error($category)) {
+                                echo $category->count . ' posts';
+                            } else {
+                                echo '0 posts';
+                            }
+                            ?>
                         </span>
                     </a>
                 <?php endforeach; ?>

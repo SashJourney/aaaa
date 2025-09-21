@@ -28,12 +28,14 @@ add_action('after_setup_theme', 'hackernull_theme_setup');
 function hackernull_scripts() {
     // Styles
     wp_enqueue_style('hackernull-style', get_stylesheet_uri(), array(), '1.0.0');
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css', array(), '6.0.0');
+    wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap', array(), null);
 
     // Scripts
+    wp_enqueue_script('jquery');
     wp_enqueue_script('particles', 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js', array(), '2.0.0', true);
     wp_enqueue_script('cloudflare-turnstile', 'https://challenges.cloudflare.com/turnstile/v0/api.js', array(), null, true);
-    wp_enqueue_script('hackernull-custom', get_template_directory_uri() . '/script.js', array('jquery', 'particles'), '1.0.0', true);
+    wp_enqueue_script('hackernull-custom', get_template_directory_uri() . '/script.js', array('jquery', 'particles'), '1.0.1', true);
 
     // Localize script for AJAX
     wp_localize_script('hackernull-custom', 'hackernullAjax', array(
