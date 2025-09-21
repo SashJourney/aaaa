@@ -568,25 +568,26 @@ function hackernull_scripts() {
         }
 
         .site-header .container {
-            display: grid !important;
-            grid-template-columns: 1fr auto 1fr !important;
+            display: flex !important;
+            justify-content: center !important;
             align-items: center !important;
-            gap: 2rem !important;
             position: relative !important;
-            padding: 1rem 2rem !important;
+            padding: 1rem !important;
+            min-height: 80px !important;
         }
 
         .site-branding {
-            grid-column: 2 !important;
+            position: absolute !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
             gap: 0.5rem !important;
-            position: relative !important;
         }
 
         .site-title {
-            font-size: 2rem !important;
+            font-size: 2.2rem !important;
             font-family: 'Courier New', monospace !important;
             font-weight: bold !important;
             margin: 0 !important;
@@ -608,6 +609,37 @@ function hackernull_scripts() {
             transition: all 0.3s ease !important;
             display: inline-block !important;
             text-shadow: 0 0 10px var(--primary) !important;
+            animation: glowPulse 2s infinite !important;
+        }
+
+        @keyframes glowPulse {
+            0% {
+                text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary-glow) !important;
+                border-color: rgba(0, 255, 0, 0.3) !important;
+            }
+            50% {
+                text-shadow: 0 0 20px var(--primary), 0 0 30px var(--primary-glow) !important;
+                border-color: var(--primary) !important;
+            }
+            100% {
+                text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary-glow) !important;
+                border-color: rgba(0, 255, 0, 0.3) !important;
+            }
+        }
+
+        @keyframes borderGlow {
+            0% {
+                transform: scaleY(0.7) !important;
+                opacity: 0.5 !important;
+            }
+            50% {
+                transform: scaleY(1) !important;
+                opacity: 1 !important;
+            }
+            100% {
+                transform: scaleY(0.7) !important;
+                opacity: 0.5 !important;
+            }
         }
 
         .site-title a::before,
@@ -619,30 +651,34 @@ function hackernull_scripts() {
             width: 2px !important;
             background: var(--primary) !important;
             box-shadow: 0 0 10px var(--primary) !important;
-            transition: all 0.3s ease !important;
+            animation: borderGlow 2s infinite !important;
         }
 
         .site-title a::before {
             left: -2px !important;
-            transform: scaleY(0.7) !important;
         }
 
         .site-title a::after {
             right: -2px !important;
-            transform: scaleY(0.7) !important;
-        }
-
-        .site-title a:hover::before,
-        .site-title a:hover::after {
-            transform: scaleY(1) !important;
+            animation-delay: 0.5s !important;
         }
 
         .site-title a:hover {
-            text-shadow: 0 0 20px var(--primary) !important;
+            text-shadow: 0 0 30px var(--primary) !important;
             border-color: var(--primary) !important;
             box-shadow: 0 0 30px rgba(0, 255, 0, 0.2) !important;
             background: rgba(0, 255, 0, 0.1) !important;
             letter-spacing: 4px !important;
+            animation: glowPulse 1s infinite !important;
+        }
+
+        .site-title a:hover::before,
+        .site-title a:hover::after {
+            animation: borderGlow 1s infinite !important;
+        }
+
+        .site-title a:hover::after {
+            animation-delay: 0.25s !important;
         }
 
         .site-description {
@@ -650,8 +686,10 @@ function hackernull_scripts() {
         }
 
         .main-navigation {
-            grid-column: 3 !important;
-            justify-self: end !important;
+            position: absolute !important;
+            right: 2rem !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
             display: flex !important;
             align-items: center !important;
             gap: 2rem !important;
@@ -700,10 +738,11 @@ function hackernull_scripts() {
         }
 
         .search-box {
-            position: relative !important;
+            position: absolute !important;
+            left: 2rem !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
             width: 200px !important;
-            grid-column: 1 !important;
-            justify-self: start !important;
         }
 
         .search-box input.search-field {
