@@ -365,7 +365,7 @@ function hackernull_scripts() {
             position: relative !important;
         }
 
-        .newsletter-form input[type="email"] {
+        .newsletter-form input[type=email] {
             flex: 1 !important;
             padding: 1rem !important;
             background: var(--bg-dark) !important;
@@ -375,7 +375,7 @@ function hackernull_scripts() {
             font-family: 'Courier New', monospace !important;
         }
 
-        .newsletter-form input[type="email"]:focus {
+        .newsletter-form input[type=email]:focus {
             outline: none !important;
             border-color: var(--primary) !important;
             box-shadow: var(--glow) !important;
