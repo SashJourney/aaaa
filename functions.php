@@ -588,9 +588,25 @@ function cleanup_sitemap($provider, $name) {
     if ('taxonomies' === $name) {
         return false;
     }
+
+    // Remove pages sitemap
+    if ('post_type' === $name && $provider instanceof WP_Sitemaps_Posts) {
+        $post_types = $provider->get_object_subtypes();
+        unset($post_types['page']);
+        
+        // Only keep 'post' type
+        $provider->object_subtypes = array('post' => $post_types['post']);
+    }
     
     return $provider;
 }
+
+// Remove pages from sitemap
+function remove_page_from_sitemap($post_types) {
+    unset($post_types['page']);
+    return $post_types;
+}
+add_filter('wp_sitemaps_post_types', 'remove_page_from_sitemap');
 add_filter('wp_sitemaps_add_provider', 'cleanup_sitemap', 10, 2);
 
 // Disable XML-RPC
