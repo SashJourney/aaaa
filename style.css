@@ -1,23 +1,61 @@
 /*
 Theme Name: Hackernull Theme
 Theme URI: https://hackernull.com
-Author: SashJourney
-Author URI: https://hackernull.com
-Description: A minimal starter theme for WordPress
+Author: Hackernull
+Description: Custom dark theme for Hackernull News
 Version: 1.0
-License: GNU General Public License v2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: hackernull-theme
 */
+
 body {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 40px auto;
-    line-height: 1.6;
-    padding: 0 20px;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #0d0d0d;
+  color: #e0e0e0;
 }
 
+a { color: #8ab4f8; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
 header {
-    border-bottom: 2px solid #eee;
-    margin-bottom: 20px;
+  background: #111;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+h1.site-title {
+  font-size: 2.5rem;
+  color: #8ab4f8;
+}
+
+section {
+  margin: 50px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.post-grid article {
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.post-grid img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+footer {
+  background: #111;
+  padding: 30px;
+  text-align: center;
+}
+footer input, footer button {
+  padding: 10px;
+  margin: 5px;
 }
