@@ -36,11 +36,27 @@ function hackernull_scripts() {
             --primary: #00ff00;
             --primary-hover: #00cc00;
             --bg-dark: #000000;
-            --bg-card: #111111;
+            --bg-card: #0a0f0a;
             --text-primary: #ffffff;
             --text-secondary: #888888;
             --border-color: rgba(0, 255, 0, 0.1);
             --glow: 0 0 10px rgba(0, 255, 0, 0.2);
+            --terminal-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+            --card-bg: linear-gradient(145deg, #0a0f0a, #111111);
+        }
+
+        @keyframes scanline {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
         }
 
         /* Base styles */
@@ -71,24 +87,80 @@ function hackernull_scripts() {
 
         /* Categories */
         .categories-section {
-            margin: 2rem 0 !important;
+            margin: 3rem 0 !important;
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
-            gap: 1.5rem !important;
+            gap: 2rem !important;
+            position: relative !important;
+        }
+
+        .categories-section::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 255, 0, 0.1) 0%, transparent 70%) !important;
+            pointer-events: none !important;
         }
 
         .category-card {
-            background: var(--bg-card) !important;
+            background: var(--card-bg) !important;
             border: 1px solid var(--border-color) !important;
-            padding: 1.5rem !important;
-            border-radius: 4px !important;
+            padding: 2rem !important;
+            border-radius: 8px !important;
             transition: all 0.3s ease !important;
+            position: relative !important;
+            overflow: hidden !important;
+            box-shadow: var(--terminal-shadow) !important;
+        }
+
+        .category-card::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 2px !important;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent) !important;
+            animation: scanline 2s linear infinite !important;
+            opacity: 0 !important;
+            transition: opacity 0.3s ease !important;
+        }
+
+        .category-card:hover::before {
+            opacity: 1 !important;
         }
 
         .category-card:hover {
             border-color: var(--primary) !important;
             box-shadow: var(--glow) !important;
             transform: translateY(-5px) !important;
+            background: linear-gradient(145deg, #111111, #0a0f0a) !important;
+        }
+
+        .category-card h3 {
+            color: var(--primary) !important;
+            font-size: 1.5rem !important;
+            margin-bottom: 1rem !important;
+            font-family: 'Courier New', monospace !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important;
+            position: relative !important;
+            display: inline-block !important;
+            text-shadow: var(--glow) !important;
+        }
+
+        .post-count {
+            font-family: 'Courier New', monospace !important;
+            color: var(--text-secondary) !important;
+            font-size: 0.9rem !important;
+            background: rgba(0, 255, 0, 0.1) !important;
+            padding: 0.25rem 0.75rem !important;
+            border-radius: 12px !important;
+            display: inline-block !important;
+            margin-top: 1rem !important;
         }
 
         /* Links */
@@ -106,8 +178,91 @@ function hackernull_scripts() {
         h1, h2, h3 {
             color: var(--primary) !important;
             text-transform: uppercase !important;
-            letter-spacing: 1px !important;
-            margin-bottom: 1.5rem !important;
+            letter-spacing: 2px !important;
+            margin-bottom: 2rem !important;
+            font-family: 'Courier New', monospace !important;
+            position: relative !important;
+            display: inline-block !important;
+            text-shadow: var(--glow) !important;
+        }
+
+        h2.section-title {
+            font-size: 2rem !important;
+            text-align: center !important;
+            width: 100% !important;
+            margin-bottom: 3rem !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 1rem !important;
+        }
+
+        h2.section-title::before,
+        h2.section-title::after {
+            content: '' !important;
+            height: 1px !important;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent) !important;
+            flex: 1 !important;
+        }
+
+        /* Latest News Section */
+        .latest-news {
+            margin-top: 4rem !important;
+            position: relative !important;
+            padding: 2rem !important;
+            background: var(--card-bg) !important;
+            border-radius: 8px !important;
+            border: 1px solid var(--border-color) !important;
+            box-shadow: var(--terminal-shadow) !important;
+        }
+
+        .latest-news::before {
+            content: '> Latest_Updates.log' !important;
+            position: absolute !important;
+            top: -1.5rem !important;
+            left: 0 !important;
+            color: var(--primary) !important;
+            font-family: 'Courier New', monospace !important;
+            font-size: 0.9rem !important;
+            opacity: 0.7 !important;
+        }
+
+        .post-title {
+            font-family: 'Courier New', monospace !important;
+            color: var(--primary) !important;
+            font-size: 1.5rem !important;
+            margin-bottom: 1rem !important;
+            display: block !important;
+            position: relative !important;
+            padding-left: 1.5rem !important;
+        }
+
+        .post-title::before {
+            content: '>' !important;
+            position: absolute !important;
+            left: 0 !important;
+            color: var(--primary) !important;
+            opacity: 0.7 !important;
+        }
+
+        .post-meta {
+            font-family: 'Courier New', monospace !important;
+            color: var(--text-secondary) !important;
+            font-size: 0.9rem !important;
+            margin-bottom: 1rem !important;
+            display: flex !important;
+            gap: 1rem !important;
+            align-items: center !important;
+        }
+
+        .post-meta::before {
+            content: '[' !important;
+            color: var(--primary) !important;
+        }
+
+        .post-meta::after {
+            content: ']' !important;
+            color: var(--primary) !important;
         }
 
         /* Search box */
@@ -162,6 +317,108 @@ function hackernull_scripts() {
             animation: matrix-glow 2s infinite !important;
         }
 
+        /* Newsletter Section */
+        .newsletter-section {
+            background: var(--card-bg) !important;
+            padding: 3rem !important;
+            margin: 4rem 0 !important;
+            text-align: center !important;
+            border-radius: 8px !important;
+            border: 1px solid var(--border-color) !important;
+            position: relative !important;
+            overflow: hidden !important;
+            box-shadow: var(--terminal-shadow) !important;
+        }
+
+        .newsletter-section::before {
+            content: '> Subscribe_Now.exe' !important;
+            position: absolute !important;
+            top: 1rem !important;
+            left: 1rem !important;
+            color: var(--primary) !important;
+            font-family: 'Courier New', monospace !important;
+            font-size: 0.9rem !important;
+            opacity: 0.7 !important;
+        }
+
+        .newsletter-section h2 {
+            font-size: 2rem !important;
+            margin-bottom: 1rem !important;
+            position: relative !important;
+            display: inline-block !important;
+        }
+
+        .newsletter-section p {
+            color: var(--text-secondary) !important;
+            margin-bottom: 2rem !important;
+            font-family: 'Courier New', monospace !important;
+            max-width: 600px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        .newsletter-form {
+            display: flex !important;
+            gap: 1rem !important;
+            max-width: 500px !important;
+            margin: 0 auto !important;
+            position: relative !important;
+        }
+
+        .newsletter-form input[type="email"] {
+            flex: 1 !important;
+            padding: 1rem !important;
+            background: var(--bg-dark) !important;
+            border: 1px solid var(--border-color) !important;
+            border-radius: 4px !important;
+            color: var(--text-primary) !important;
+            font-family: 'Courier New', monospace !important;
+        }
+
+        .newsletter-form input[type="email"]:focus {
+            outline: none !important;
+            border-color: var(--primary) !important;
+            box-shadow: var(--glow) !important;
+        }
+
+        .newsletter-form button {
+            padding: 1rem 2rem !important;
+            background: transparent !important;
+            border: 1px solid var(--primary) !important;
+            color: var(--primary) !important;
+            border-radius: 4px !important;
+            cursor: pointer !important;
+            font-family: 'Courier New', monospace !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            position: relative !important;
+            overflow: hidden !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .newsletter-form button::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: var(--primary) !important;
+            transform: scaleX(0) !important;
+            transform-origin: right !important;
+            transition: transform 0.3s ease !important;
+            z-index: -1 !important;
+        }
+
+        .newsletter-form button:hover {
+            color: var(--bg-dark) !important;
+        }
+
+        .newsletter-form button:hover::before {
+            transform: scaleX(1) !important;
+            transform-origin: left !important;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .categories-section {
@@ -169,6 +426,12 @@ function hackernull_scripts() {
             }
             .site-main {
                 padding: 1rem !important;
+            }
+            .newsletter-form {
+                flex-direction: column !important;
+            }
+            .newsletter-section {
+                padding: 2rem 1rem !important;
             }
         }
     ";
