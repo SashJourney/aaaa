@@ -1,54 +1,176 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+.site-title {
+    position: relative !important;
+    overflow: hidden !important;
+    padding: 2rem 0 !important;
+}
+
+.site-title::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 0, 0.03) 0px,
+        rgba(0, 255, 0, 0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    ) !important;
+    pointer-events: none !important;
+    animation: scanline 10s linear infinite !important;
+}
 
 .site-title a {
-    font-family: 'VT323', monospace !important;
-    font-size: 4rem !important;
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: 3.5rem !important;
+    font-weight: bold !important;
     color: #00ff00 !important;
     text-shadow: 
-        0 0 5px #00ff00,
-        0 0 15px #00ff00,
-        0 0 30px #00ff00 !important;
-    position: relative !important;
-    display: inline-block !important;
-    padding: 0.5rem !important;
+        0 0 5px rgba(0, 255, 0, 0.8),
+        0 0 10px rgba(0, 255, 0, 0.5),
+        0 0 15px rgba(0, 255, 229, 0.5),
+        0 0 20px rgba(0, 255, 229, 0.3) !important;
     text-decoration: none !important;
+    display: inline-block !important;
+    position: relative !important;
+    padding: 0 1rem !important;
+    letter-spacing: 2px !important;
+    transform-style: preserve-3d !important;
+    transform: translateZ(0) !important;
+    transition: text-shadow 0.3s ease !important;
+}
+
+.site-title a::before,
+.site-title a::after {
+    content: '—' !important;
+    color: #00ff00 !important;
+    text-shadow: 
+        0 0 5px rgba(0, 255, 0, 0.8),
+        0 0 10px rgba(0, 255, 0, 0.5),
+        0 0 15px rgba(0, 255, 229, 0.5) !important;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    animation: pulseLine 2s ease-in-out infinite !important;
 }
 
 .site-title a::before {
-    content: '[' !important;
-    margin-right: 1rem !important;
-    color: #00ff00 !important;
-    text-shadow: 
-        0 0 5px #00ff00,
-        0 0 15px #00ff00,
-        0 0 30px #00ff00 !important;
+    left: -3rem !important;
 }
 
 .site-title a::after {
-    content: '|\00a0]' !important;
-    margin-left: 0.5rem !important;
-    color: #00ff00 !important;
-    text-shadow: 
-        0 0 5px #00ff00,
-        0 0 15px #00ff00,
-        0 0 30px #00ff00 !important;
-    animation: blink 0.8s infinite !important;
+    right: -3rem !important;
+}
+
+/* Typing effect wrapper */
+.site-title a span {
+    display: inline-block !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    animation: typing 2s steps(10, end) !important;
+}
+
+/* Cursor */
+.site-title a span::after {
+    content: '|' !important;
+    margin-left: 5px !important;
+    animation: blink 1s step-end infinite !important;
+}
+
+/* Random glitch effect */
+@keyframes glitch {
+    0% {
+        clip-path: inset(50% 0 50% 0);
+        transform: translateX(-2px);
+        text-shadow: 
+            2px 0 rgba(255, 0, 0, 0.5),
+            -2px 0 rgba(0, 255, 229, 0.5);
+    }
+    10% {
+        clip-path: inset(20% 0 80% 0);
+        transform: translateX(2px);
+    }
+    20% {
+        clip-path: inset(80% 0 20% 0);
+        transform: translateX(-2px);
+    }
+    30% {
+        clip-path: inset(50% 0 50% 0);
+        transform: translateX(2px);
+    }
+    40% {
+        clip-path: inset(0% 0 100% 0);
+        transform: translateX(-2px);
+    }
+    50% {
+        clip-path: inset(100% 0 0% 0);
+        transform: translateX(2px);
+    }
+    60% {
+        clip-path: inset(50% 0 50% 0);
+        transform: translateX(-2px);
+    }
+    70% {
+        clip-path: inset(0% 0 100% 0);
+        transform: translateX(2px);
+    }
+    80% {
+        clip-path: inset(100% 0 0% 0);
+        transform: translateX(-2px);
+    }
+    90% {
+        clip-path: inset(20% 0 80% 0);
+        transform: translateX(2px);
+    }
+    100% {
+        clip-path: inset(50% 0 50% 0);
+        transform: translateX(0);
+        text-shadow: none;
+    }
+}
+
+@keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
 }
 
 @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
 }
 
-.site-title a:hover {
-    animation: glitch 1s infinite !important;
+@keyframes pulseLine {
+    0%, 100% {
+        text-shadow: 
+            0 0 5px rgba(0, 255, 0, 0.8),
+            0 0 10px rgba(0, 255, 0, 0.5),
+            0 0 15px rgba(0, 255, 229, 0.5);
+        transform: translateY(-50%) scaleX(1);
+    }
+    50% {
+        text-shadow: 
+            0 0 10px rgba(0, 255, 0, 0.8),
+            0 0 20px rgba(0, 255, 0, 0.5),
+            0 0 30px rgba(0, 255, 229, 0.5);
+        transform: translateY(-50%) scaleX(1.1);
+    }
 }
 
-@keyframes glitch {
-    0% { text-shadow: 2px 0 red, -2px 0 blue; }
-    20% { text-shadow: -2px 0 red, 2px 0 blue; }
-    40% { text-shadow: 2px 0 lime, -2px 0 magenta; }
-    60% { text-shadow: -2px 0 lime, 2px 0 magenta; }
-    80% { text-shadow: 2px 0 red, -2px 0 blue; }
-    100% { text-shadow: none; }
+/* Trigger glitch randomly */
+.site-title a {
+    animation: triggerGlitch 10s steps(1) infinite !important;
+}
+
+@keyframes triggerGlitch {
+    0%, 93%, 95%, 98%, 100% { animation: none; }
+    94%, 96%, 99% { animation: glitch 0.3s linear; }
 }
