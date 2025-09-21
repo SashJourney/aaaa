@@ -1,19 +1,144 @@
 .site-title a {
     font-family: 'Courier New', monospace !important;
     font-style: italic !important;
-    animation: powerFlicker 3s infinite !important;
+    font-weight: bold !important;
+    color: #0f0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 3px !important;
+    text-shadow: 
+        0 0 5px #0f0,
+        0 0 10px #0f0,
+        0 0 20px #0f0,
+        0 0 40px #0f0,
+        0 0 80px #0f0 !important;
+    animation: electricText 0.15s ease-in-out infinite alternate !important;
 }
 
-@keyframes powerFlicker {
-    0%, 100% { opacity: 1; }
-    32.9% { opacity: 1; }
-    33% { opacity: 0; }
-    33.1% { opacity: 1; }
-    33.4% { opacity: 0; }
-    33.5% { opacity: 1; }
-    66.9% { opacity: 1; }
-    67% { opacity: 0; }
-    67.1% { opacity: 1; }
-    67.4% { opacity: 0; }
-    67.5% { opacity: 1; }
+@keyframes electricText {
+    0% {
+        opacity: 1;
+        text-shadow: 
+            0 0 5px #0f0,
+            0 0 10px #0f0,
+            0 0 20px #0f0,
+            0 0 40px #0f0,
+            0 0 80px #0f0;
+        transform: skew(0deg);
+    }
+    25% {
+        opacity: 0.8;
+        text-shadow: 
+            0 0 2px #0f0,
+            0 0 5px #0f0,
+            0 0 10px #0f0,
+            0 0 20px #0f0,
+            0 0 40px #0f0;
+        transform: skew(-1deg);
+    }
+    50% {
+        opacity: 0.9;
+        text-shadow: 
+            0 0 10px #0f0,
+            0 0 20px #0f0,
+            0 0 40px #0f0,
+            0 0 80px #0f0,
+            0 0 120px #0f0;
+        transform: skew(1deg);
+    }
+    75% {
+        opacity: 0.8;
+        text-shadow: 
+            0 0 2px #0f0,
+            0 0 5px #0f0,
+            0 0 10px #0f0,
+            0 0 20px #0f0,
+            0 0 40px #0f0;
+        transform: skew(-1deg);
+    }
+    100% {
+        opacity: 1;
+        text-shadow: 
+            0 0 5px #0f0,
+            0 0 10px #0f0,
+            0 0 20px #0f0,
+            0 0 40px #0f0,
+            0 0 80px #0f0;
+        transform: skew(0deg);
+    }
+}
+
+/* Electric lines */
+.site-title::before,
+.site-title::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    width: 120px !important;
+    height: 3px !important;
+    background: #0f0 !important;
+    transform-origin: center !important;
+    box-shadow:
+        0 0 5px #0f0,
+        0 0 10px #0f0,
+        0 0 20px #0f0,
+        0 0 40px #0f0 !important;
+    animation: electricLine 0.15s ease-in-out infinite alternate !important;
+}
+
+.site-title::before {
+    left: -130px !important;
+    transform: translateY(-50%) !important;
+}
+
+.site-title::after {
+    right: -130px !important;
+    transform: translateY(-50%) !important;
+}
+
+@keyframes electricLine {
+    0% {
+        opacity: 1;
+        transform: translateY(-50%) scaleX(1);
+        box-shadow:
+            0 0 5px #0f0,
+            0 0 10px #0f0,
+            0 0 20px #0f0,
+            0 0 40px #0f0;
+    }
+    25% {
+        opacity: 0.8;
+        transform: translateY(-50%) scaleX(0.95);
+        box-shadow:
+            0 0 2px #0f0,
+            0 0 5px #0f0,
+            0 0 10px #0f0,
+            0 0 20px #0f0;
+    }
+    50% {
+        opacity: 0.9;
+        transform: translateY(-50%) scaleX(1.05);
+        box-shadow:
+            0 0 10px #0f0,
+            0 0 20px #0f0,
+            0 0 40px #0f0,
+            0 0 80px #0f0;
+    }
+    75% {
+        opacity: 0.8;
+        transform: translateY(-50%) scaleX(0.95);
+        box-shadow:
+            0 0 2px #0f0,
+            0 0 5px #0f0,
+            0 0 10px #0f0,
+            0 0 20px #0f0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) scaleX(1);
+        box-shadow:
+            0 0 5px #0f0,
+            0 0 10px #0f0,
+            0 0 20px #0f0,
+            0 0 40px #0f0;
+    }
 }
