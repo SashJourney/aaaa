@@ -611,82 +611,120 @@ function hackernull_scripts() {
             letter-spacing: 3px !important;
             position: relative !important;
             padding: 0.75rem 1.5rem !important;
-            background: rgba(0, 255, 0, 0.05) !important;
-            border-radius: 4px !important;
-            border: 1px solid var(--border-color) !important;
+            background: transparent !important;
             transition: all 0.3s ease !important;
             display: inline-block !important;
             text-shadow: 0 0 10px var(--primary) !important;
-            animation: glowPulse 2s infinite !important;
+            animation: textGlow 3s infinite !important;
         }
 
-        @keyframes glowPulse {
+        @keyframes textGlow {
             0% {
-                text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary-glow) !important;
-                border-color: rgba(0, 255, 0, 0.3) !important;
+                color: var(--primary) !important;
+                text-shadow: 
+                    0 0 10px var(--primary),
+                    0 0 20px var(--primary-glow),
+                    0 0 30px transparent !important;
             }
             50% {
-                text-shadow: 0 0 20px var(--primary), 0 0 30px var(--primary-glow) !important;
-                border-color: var(--primary) !important;
+                color: #fff !important;
+                text-shadow: 
+                    0 0 20px var(--primary),
+                    0 0 40px var(--primary-glow),
+                    0 0 60px var(--primary-glow) !important;
             }
             100% {
-                text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary-glow) !important;
-                border-color: rgba(0, 255, 0, 0.3) !important;
+                color: var(--primary) !important;
+                text-shadow: 
+                    0 0 10px var(--primary),
+                    0 0 20px var(--primary-glow),
+                    0 0 30px transparent !important;
             }
         }
 
-        @keyframes borderGlow {
+        @keyframes scanline {
             0% {
-                transform: scaleY(0.7) !important;
-                opacity: 0.5 !important;
+                transform: translateY(-100%) !important;
+                opacity: 0 !important;
             }
             50% {
-                transform: scaleY(1) !important;
-                opacity: 1 !important;
+                opacity: 0.5 !important;
             }
             100% {
-                transform: scaleY(0.7) !important;
-                opacity: 0.5 !important;
+                transform: translateY(100%) !important;
+                opacity: 0 !important;
             }
         }
 
-        .site-title a::before,
         .site-title a::after {
             content: '' !important;
             position: absolute !important;
-            top: -2px !important;
-            bottom: -2px !important;
-            width: 2px !important;
-            background: var(--primary) !important;
-            box-shadow: 0 0 10px var(--primary) !important;
-            animation: borderGlow 2s infinite !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            height: 1px !important;
+            background: linear-gradient(90deg, 
+                transparent,
+                var(--primary),
+                transparent
+            ) !important;
+            animation: scanline 2s linear infinite !important;
+            opacity: 0.5 !important;
         }
 
         .site-title a::before {
-            left: -2px !important;
+            content: attr(data-text) !important;
+            position: absolute !important;
+            left: 0 !important;
+            top: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: var(--bg-dark) !important;
+            color: var(--primary) !important;
+            text-shadow: 0 0 10px var(--primary) !important;
+            animation: glitch 3s infinite !important;
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%) !important;
+            transform: translate(-0.025em, 0.0125em) !important;
+            opacity: 0.75 !important;
         }
 
-        .site-title a::after {
-            right: -2px !important;
-            animation-delay: 0.5s !important;
+        @keyframes glitch {
+            0% {
+                clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%) !important;
+                transform: translate(-0.025em, 0.0125em) !important;
+            }
+            20% {
+                clip-path: polygon(0 15%, 100% 15%, 100% 30%, 0 30%) !important;
+                transform: translate(-0.05em, 0.025em) !important;
+            }
+            40% {
+                clip-path: polygon(0 45%, 100% 45%, 100% 65%, 0 65%) !important;
+                transform: translate(0.025em, 0.0125em) !important;
+            }
+            60% {
+                clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%) !important;
+                transform: translate(0.05em, 0.025em) !important;
+            }
+            80% {
+                clip-path: polygon(0 80%, 100% 80%, 100% 90%, 0 90%) !important;
+                transform: translate(-0.025em, -0.0125em) !important;
+            }
+            100% {
+                clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%) !important;
+                transform: translate(-0.025em, 0.0125em) !important;
+            }
         }
 
         .site-title a:hover {
-            text-shadow: 0 0 30px var(--primary) !important;
-            border-color: var(--primary) !important;
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2) !important;
-            background: rgba(0, 255, 0, 0.1) !important;
+            text-shadow: 
+                0 0 20px var(--primary),
+                0 0 40px var(--primary-glow),
+                0 0 80px var(--primary-glow) !important;
             letter-spacing: 4px !important;
-            animation: glowPulse 1s infinite !important;
         }
 
-        .site-title a:hover::before,
-        .site-title a:hover::after {
-            animation: borderGlow 1s infinite !important;
-        }
-
-        .site-title a:hover::after {
-            animation-delay: 0.25s !important;
+        .site-title a:hover::before {
+            animation: glitch 0.5s infinite !important;
         }
 
         .site-description {
