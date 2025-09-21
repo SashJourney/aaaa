@@ -1,9 +1,10 @@
 <?php
-function hackernull_enqueue_scripts() {
-    wp_enqueue_style( 'hackernull-style', get_stylesheet_uri() );
+function hackernull_scripts() {
+    wp_enqueue_style('hackernull-style', get_stylesheet_uri());
+    wp_enqueue_script('particles', 'https://cdn.jsdelivr.net/npm/particles.js', [], null, true);
+    wp_enqueue_script('hackernull-custom', get_template_directory_uri().'/script.js', ['particles'], null, true);
 }
-add_action( 'wp_enqueue_scripts', 'hackernull_enqueue_scripts' );
+add_action('wp_enqueue_scripts', 'hackernull_scripts');
 
-// Add support for featured images & title tag
-add_theme_support( 'post-thumbnails' );
-add_theme_support( 'title-tag' );
+add_theme_support('post-thumbnails');
+add_theme_support('title-tag');
