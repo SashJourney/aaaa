@@ -14,7 +14,7 @@
     <div class="header-container">
         <div class="logo-container">
             <h1 class="site-title">
-                <a href="<?php echo home_url(); ?>">
+                <a href="<?php echo home_url(); ?>" data-text="HackerNull">
                     <span class="hack">Hacker</span><span class="null">Null</span>
                 </a>
             </h1>

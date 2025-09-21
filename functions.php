@@ -35,23 +35,46 @@ function hackernull_scripts() {
         :root {
             --primary: #00ff00;
             --primary-hover: #00cc00;
+            --primary-glow: #00ff0033;
             --bg-dark: #000000;
             --bg-card: #0a0f0a;
+            --bg-card-hover: #111111;
             --text-primary: #ffffff;
             --text-secondary: #888888;
             --border-color: rgba(0, 255, 0, 0.1);
             --glow: 0 0 10px rgba(0, 255, 0, 0.2);
+            --glow-strong: 0 0 20px rgba(0, 255, 0, 0.4);
             --terminal-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
             --card-bg: linear-gradient(145deg, #0a0f0a, #111111);
+            --card-bg-hover: linear-gradient(145deg, #111111, #0a0f0a);
+            --terminal-prompt: '> ';
+            --scanline-color: rgba(0, 255, 0, 0.1);
+            --matrix-bg: linear-gradient(45deg, transparent, var(--primary-glow), transparent);
         }
 
         @keyframes scanline {
-            0% {
-                transform: translateY(-100%);
-            }
-            100% {
-                transform: translateY(100%);
-            }
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 0.05em 0 0 var(--primary-glow), -0.05em -0.025em 0 var(--primary-hover); }
+            14% { text-shadow: 0.05em 0 0 var(--primary-glow), -0.05em -0.025em 0 var(--primary-hover); }
+            15% { text-shadow: -0.05em -0.025em 0 var(--primary-glow), 0.025em 0.025em 0 var(--primary-hover); }
+            49% { text-shadow: -0.05em -0.025em 0 var(--primary-glow), 0.025em 0.025em 0 var(--primary-hover); }
+            50% { text-shadow: 0.025em 0.05em 0 var(--primary-glow), 0.05em 0 0 var(--primary-hover); }
+            99% { text-shadow: 0.025em 0.05em 0 var(--primary-glow), 0.05em 0 0 var(--primary-hover); }
+            100% { text-shadow: -0.025em 0 0 var(--primary-glow), -0.025em -0.025em 0 var(--primary-hover); }
+        }
+
+        @keyframes terminalType {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes matrixRain {
+            0% { background-position: 0% -100%; }
+            100% { background-position: 0% 100%; }
         }
 
         @keyframes typing {
@@ -83,6 +106,30 @@ function hackernull_scripts() {
             font-size: 2.5rem !important;
             font-weight: bold !important;
             text-shadow: 0 0 10px rgba(0, 255, 0, 0.3) !important;
+            animation: glitch 3s infinite !important;
+            position: relative !important;
+            display: inline-block !important;
+        }
+
+        .site-title a::before {
+            content: attr(data-text) !important;
+            position: absolute !important;
+            left: -2px !important;
+            text-shadow: 2px 0 var(--primary-glow) !important;
+            top: 0 !important;
+            color: var(--primary) !important;
+            background: var(--bg-dark) !important;
+            overflow: hidden !important;
+            animation: glitch-2 15s infinite linear alternate-reverse !important;
+        }
+
+        @keyframes glitch-2 {
+            0% { clip-path: inset(40% 0 61% 0); }
+            20% { clip-path: inset(92% 0 1% 0); }
+            40% { clip-path: inset(43% 0 1% 0); }
+            60% { clip-path: inset(25% 0 58% 0); }
+            80% { clip-path: inset(54% 0 7% 0); }
+            100% { clip-path: inset(58% 0 43% 0); }
         }
 
         /* Categories */
@@ -116,17 +163,30 @@ function hackernull_scripts() {
             box-shadow: var(--terminal-shadow) !important;
         }
 
+        @keyframes matrixBg {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
         .category-card::before {
             content: '' !important;
             position: absolute !important;
             top: 0 !important;
             left: 0 !important;
             width: 100% !important;
-            height: 2px !important;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent) !important;
-            animation: scanline 2s linear infinite !important;
+            height: 100% !important;
+            background: linear-gradient(45deg, 
+                transparent 0%, 
+                rgba(0, 255, 0, 0.05) 30%,
+                rgba(0, 255, 0, 0.1) 50%,
+                rgba(0, 255, 0, 0.05) 70%,
+                transparent 100%
+            ) !important;
+            background-size: 400% 400% !important;
+            animation: matrixBg 3s ease infinite !important;
             opacity: 0 !important;
             transition: opacity 0.3s ease !important;
+            border-radius: var(--border-radius) !important;
         }
 
         .category-card:hover::before {
