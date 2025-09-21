@@ -1,144 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 .site-title a {
-    font-family: 'Courier New', monospace !important;
-    font-style: italic !important;
-    font-weight: bold !important;
-    color: #0f0 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 3px !important;
+    font-family: 'VT323', monospace !important;
+    font-size: 4rem !important;
+    color: #00ff00 !important;
     text-shadow: 
-        0 0 5px #0f0,
-        0 0 10px #0f0,
-        0 0 20px #0f0,
-        0 0 40px #0f0,
-        0 0 80px #0f0 !important;
-    animation: electricText 0.15s ease-in-out infinite alternate !important;
+        0 0 5px #00ff00,
+        0 0 15px #00ff00,
+        0 0 30px #00ff00 !important;
+    position: relative !important;
+    display: inline-block !important;
+    padding: 0.5rem !important;
+    text-decoration: none !important;
 }
 
-@keyframes electricText {
-    0% {
-        opacity: 1;
-        text-shadow: 
-            0 0 5px #0f0,
-            0 0 10px #0f0,
-            0 0 20px #0f0,
-            0 0 40px #0f0,
-            0 0 80px #0f0;
-        transform: skew(0deg);
-    }
-    25% {
-        opacity: 0.8;
-        text-shadow: 
-            0 0 2px #0f0,
-            0 0 5px #0f0,
-            0 0 10px #0f0,
-            0 0 20px #0f0,
-            0 0 40px #0f0;
-        transform: skew(-1deg);
-    }
-    50% {
-        opacity: 0.9;
-        text-shadow: 
-            0 0 10px #0f0,
-            0 0 20px #0f0,
-            0 0 40px #0f0,
-            0 0 80px #0f0,
-            0 0 120px #0f0;
-        transform: skew(1deg);
-    }
-    75% {
-        opacity: 0.8;
-        text-shadow: 
-            0 0 2px #0f0,
-            0 0 5px #0f0,
-            0 0 10px #0f0,
-            0 0 20px #0f0,
-            0 0 40px #0f0;
-        transform: skew(-1deg);
-    }
-    100% {
-        opacity: 1;
-        text-shadow: 
-            0 0 5px #0f0,
-            0 0 10px #0f0,
-            0 0 20px #0f0,
-            0 0 40px #0f0,
-            0 0 80px #0f0;
-        transform: skew(0deg);
-    }
+.site-title a::before {
+    content: '[' !important;
+    margin-right: 1rem !important;
+    color: #00ff00 !important;
+    text-shadow: 
+        0 0 5px #00ff00,
+        0 0 15px #00ff00,
+        0 0 30px #00ff00 !important;
 }
 
-/* Electric lines */
-.site-title::before,
-.site-title::after {
-    content: '' !important;
-    position: absolute !important;
-    top: 50% !important;
-    width: 120px !important;
-    height: 3px !important;
-    background: #0f0 !important;
-    transform-origin: center !important;
-    box-shadow:
-        0 0 5px #0f0,
-        0 0 10px #0f0,
-        0 0 20px #0f0,
-        0 0 40px #0f0 !important;
-    animation: electricLine 0.15s ease-in-out infinite alternate !important;
+.site-title a::after {
+    content: '|\00a0]' !important;
+    margin-left: 0.5rem !important;
+    color: #00ff00 !important;
+    text-shadow: 
+        0 0 5px #00ff00,
+        0 0 15px #00ff00,
+        0 0 30px #00ff00 !important;
+    animation: blink 0.8s infinite !important;
 }
 
-.site-title::before {
-    left: -130px !important;
-    transform: translateY(-50%) !important;
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
-.site-title::after {
-    right: -130px !important;
-    transform: translateY(-50%) !important;
+.site-title a:hover {
+    animation: glitch 1s infinite !important;
 }
 
-@keyframes electricLine {
-    0% {
-        opacity: 1;
-        transform: translateY(-50%) scaleX(1);
-        box-shadow:
-            0 0 5px #0f0,
-            0 0 10px #0f0,
-            0 0 20px #0f0,
-            0 0 40px #0f0;
-    }
-    25% {
-        opacity: 0.8;
-        transform: translateY(-50%) scaleX(0.95);
-        box-shadow:
-            0 0 2px #0f0,
-            0 0 5px #0f0,
-            0 0 10px #0f0,
-            0 0 20px #0f0;
-    }
-    50% {
-        opacity: 0.9;
-        transform: translateY(-50%) scaleX(1.05);
-        box-shadow:
-            0 0 10px #0f0,
-            0 0 20px #0f0,
-            0 0 40px #0f0,
-            0 0 80px #0f0;
-    }
-    75% {
-        opacity: 0.8;
-        transform: translateY(-50%) scaleX(0.95);
-        box-shadow:
-            0 0 2px #0f0,
-            0 0 5px #0f0,
-            0 0 10px #0f0,
-            0 0 20px #0f0;
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(-50%) scaleX(1);
-        box-shadow:
-            0 0 5px #0f0,
-            0 0 10px #0f0,
-            0 0 20px #0f0,
-            0 0 40px #0f0;
-    }
+@keyframes glitch {
+    0% { text-shadow: 2px 0 red, -2px 0 blue; }
+    20% { text-shadow: -2px 0 red, 2px 0 blue; }
+    40% { text-shadow: 2px 0 lime, -2px 0 magenta; }
+    60% { text-shadow: -2px 0 lime, 2px 0 magenta; }
+    80% { text-shadow: 2px 0 red, -2px 0 blue; }
+    100% { text-shadow: none; }
 }
