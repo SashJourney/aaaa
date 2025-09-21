@@ -608,123 +608,76 @@ function hackernull_scripts() {
             color: var(--primary) !important;
             text-decoration: none !important;
             text-transform: uppercase !important;
-            letter-spacing: 3px !important;
+            letter-spacing: 2px !important;
             position: relative !important;
-            padding: 0.75rem 1.5rem !important;
+            padding: 0.5rem 1rem !important;
             background: transparent !important;
             transition: all 0.3s ease !important;
             display: inline-block !important;
             text-shadow: 0 0 10px var(--primary) !important;
-            animation: textGlow 3s infinite !important;
+            animation: logoGlow 4s ease-in-out infinite !important;
         }
 
-        @keyframes textGlow {
+        @keyframes logoGlow {
             0% {
-                color: var(--primary) !important;
-                text-shadow: 
-                    0 0 10px var(--primary),
-                    0 0 20px var(--primary-glow),
-                    0 0 30px transparent !important;
+                text-shadow: 0 0 10px var(--primary) !important;
             }
             50% {
-                color: #fff !important;
-                text-shadow: 
-                    0 0 20px var(--primary),
-                    0 0 40px var(--primary-glow),
-                    0 0 60px var(--primary-glow) !important;
-            }
-            100% {
-                color: var(--primary) !important;
                 text-shadow: 
                     0 0 10px var(--primary),
-                    0 0 20px var(--primary-glow),
-                    0 0 30px transparent !important;
+                    0 0 20px var(--primary-glow) !important;
+            }
+            100% {
+                text-shadow: 0 0 10px var(--primary) !important;
             }
         }
 
-        @keyframes scanline {
-            0% {
-                transform: translateY(-100%) !important;
-                opacity: 0 !important;
-            }
-            50% {
-                opacity: 0.5 !important;
-            }
-            100% {
-                transform: translateY(100%) !important;
-                opacity: 0 !important;
-            }
+        .site-title a::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: -10px !important;
+            width: 2px !important;
+            height: 100% !important;
+            background: var(--primary) !important;
+            box-shadow: 0 0 10px var(--primary) !important;
+            animation: barPulse 4s ease-in-out infinite !important;
         }
 
         .site-title a::after {
             content: '' !important;
             position: absolute !important;
             top: 0 !important;
-            left: 0 !important;
-            right: 0 !important;
-            height: 1px !important;
-            background: linear-gradient(90deg, 
-                transparent,
-                var(--primary),
-                transparent
-            ) !important;
-            animation: scanline 2s linear infinite !important;
-            opacity: 0.5 !important;
-        }
-
-        .site-title a::before {
-            content: attr(data-text) !important;
-            position: absolute !important;
-            left: 0 !important;
-            top: 0 !important;
-            width: 100% !important;
+            right: -10px !important;
+            width: 2px !important;
             height: 100% !important;
-            background: var(--bg-dark) !important;
-            color: var(--primary) !important;
-            text-shadow: 0 0 10px var(--primary) !important;
-            animation: glitch 3s infinite !important;
-            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%) !important;
-            transform: translate(-0.025em, 0.0125em) !important;
-            opacity: 0.75 !important;
+            background: var(--primary) !important;
+            box-shadow: 0 0 10px var(--primary) !important;
+            animation: barPulse 4s ease-in-out infinite !important;
+            animation-delay: 0.5s !important;
         }
 
-        @keyframes glitch {
+        @keyframes barPulse {
             0% {
-                clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%) !important;
-                transform: translate(-0.025em, 0.0125em) !important;
+                height: 100% !important;
+                opacity: 0.5 !important;
             }
-            20% {
-                clip-path: polygon(0 15%, 100% 15%, 100% 30%, 0 30%) !important;
-                transform: translate(-0.05em, 0.025em) !important;
-            }
-            40% {
-                clip-path: polygon(0 45%, 100% 45%, 100% 65%, 0 65%) !important;
-                transform: translate(0.025em, 0.0125em) !important;
-            }
-            60% {
-                clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%) !important;
-                transform: translate(0.05em, 0.025em) !important;
-            }
-            80% {
-                clip-path: polygon(0 80%, 100% 80%, 100% 90%, 0 90%) !important;
-                transform: translate(-0.025em, -0.0125em) !important;
+            50% {
+                height: 70% !important;
+                opacity: 1 !important;
             }
             100% {
-                clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%) !important;
-                transform: translate(-0.025em, 0.0125em) !important;
+                height: 100% !important;
+                opacity: 0.5 !important;
             }
         }
 
         .site-title a:hover {
+            letter-spacing: 3px !important;
             text-shadow: 
-                0 0 20px var(--primary),
-                0 0 40px var(--primary-glow),
-                0 0 80px var(--primary-glow) !important;
-            letter-spacing: 4px !important;
-        }
-
-        .site-title a:hover::before {
-            animation: glitch 0.5s infinite !important;
+                0 0 10px var(--primary),
+                0 0 20px var(--primary-glow),
+                0 0 30px var(--primary-glow) !important;
         }
 
         .site-description {
