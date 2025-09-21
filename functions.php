@@ -71,14 +71,12 @@ function hackernull_scripts() {
 
         .category-grid {
             display: grid !important;
-            grid-template-columns: repeat(3, 1fr) !important;
+            grid-template-columns: repeat(3, minmax(300px, 1fr)) !important;
             gap: 1.5rem !important;
             position: relative !important;
             margin: 2rem 0 3rem !important;
-            max-width: 1200px !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-            padding: 0 1rem !important;
+            width: 100% !important;
+            padding: 0 2rem !important;
         }
 
         .category-card {
@@ -324,13 +322,11 @@ function hackernull_scripts() {
         /* Post Cards */
         .post-grid {
             display: grid !important;
-            grid-template-columns: repeat(3, 1fr) !important;
+            grid-template-columns: repeat(3, minmax(300px, 1fr)) !important;
             gap: 1.5rem !important;
             margin-bottom: 2rem !important;
-            max-width: 1200px !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-            padding: 0 1rem !important;
+            width: 100% !important;
+            padding: 0 2rem !important;
         }
 
         .post-card {
@@ -352,6 +348,7 @@ function hackernull_scripts() {
             overflow: hidden !important;
             flex-shrink: 0 !important;
             background: rgba(0, 0, 0, 0.2) !important;
+            border-bottom: 1px solid var(--border-color) !important;
         }
 
         .post-image img {
@@ -363,12 +360,29 @@ function hackernull_scripts() {
             object-fit: cover !important;
             transition: transform 0.3s ease !important;
             display: block !important;
+            z-index: 1 !important;
         }
 
         .post-image a {
             display: block !important;
             width: 100% !important;
             height: 100% !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            z-index: 2 !important;
+        }
+
+        .post-image::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: linear-gradient(45deg, var(--primary-glow), transparent) !important;
+            opacity: 0.1 !important;
+            z-index: 2 !important;
         }
 
         .post-categories {
@@ -487,6 +501,14 @@ function hackernull_scripts() {
             --text-primary: #ffffff;
             --text-secondary: #888888;
             --border-color: rgba(0, 255, 0, 0.1);
+        }
+
+        .container {
+            width: 100% !important;
+            max-width: 1400px !important;
+            margin: 0 auto !important;
+            padding: 0 2rem !important;
+        }
             --glow: 0 0 10px rgba(0, 255, 0, 0.2);
             --glow-strong: 0 0 20px rgba(0, 255, 0, 0.4);
             --terminal-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
