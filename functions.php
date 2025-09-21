@@ -27,9 +27,26 @@ add_action('after_setup_theme', 'hackernull_theme_setup');
 // Enqueue scripts and styles
 function hackernull_scripts() {
     // Styles
-    wp_enqueue_style('hackernull-style', get_stylesheet_uri(), array(), time()); // Force CSS refresh
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-    wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    wp_enqueue_style('hackernull-style', get_stylesheet_uri(), array(), '1.0.1');
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css', array(), '6.0.0');
+    
+    // Add inline CSS to ensure styles are loaded
+    $custom_css = "
+        :root {
+            --primary: #00ff00;
+            --primary-hover: #00cc00;
+            --bg-dark: #000000;
+            --bg-card: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+        }
+        body {
+            background-color: var(--bg-dark) !important;
+            color: var(--text-primary) !important;
+            font-family: 'Courier New', monospace !important;
+        }
+    ";
+    wp_add_inline_style('hackernull-style', $custom_css);
 
     // Scripts
     wp_enqueue_script('jquery');
