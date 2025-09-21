@@ -36,6 +36,36 @@ function hackernull_scripts() {
     
     // Add inline CSS to ensure styles are loaded
     $custom_css = "
+        :root {
+            --primary: #00ff00;
+            --primary-hover: #00cc00;
+            --primary-glow: #00ff0033;
+            --bg-dark: #000000;
+            --bg-card: #0a0f0a;
+            --bg-card-hover: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --border-color: rgba(0, 255, 0, 0.1);
+            --glow: 0 0 10px rgba(0, 255, 0, 0.2);
+            --glow-strong: 0 0 20px rgba(0, 255, 0, 0.4);
+            --terminal-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+            --card-bg: linear-gradient(145deg, #0a0f0a, #111111);
+            --card-bg-hover: linear-gradient(145deg, #111111, #0a0f0a);
+            --terminal-prompt: '> ';
+            --scanline-color: rgba(0, 255, 0, 0.1);
+            --matrix-bg: linear-gradient(45deg, transparent, var(--primary-glow), transparent);
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 2rem;
+            --border-radius: 8px;
+        }
+
+        .container {
+            width: 100% !important;
+            max-width: 1400px !important;
+            margin: 0 auto !important;
+            padding: 0 2rem !important;
+        }
         /* Terminal Theme */
         .section-header {
             margin-bottom: 3rem !important;
