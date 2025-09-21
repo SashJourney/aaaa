@@ -419,6 +419,52 @@ function hackernull_scripts() {
             transform-origin: left !important;
         }
 
+        /* Footer */
+        .site-footer {
+            background: var(--bg-card) !important;
+            border-top: 1px solid var(--border-color) !important;
+            padding: var(--spacing-lg) 0 !important;
+            margin-top: var(--spacing-lg) !important;
+        }
+
+        .footer-content {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+        }
+
+        .terminal-prompt {
+            color: var(--primary) !important;
+            font-family: 'Courier New', monospace !important;
+            margin-right: var(--spacing-sm) !important;
+        }
+
+        .typing-text {
+            color: var(--text-secondary) !important;
+            font-family: 'Courier New', monospace !important;
+            animation: typing 3s steps(60, end) !important;
+        }
+
+        .footer-menu {
+            display: flex !important;
+            gap: var(--spacing-md) !important;
+            list-style: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .footer-menu a {
+            color: var(--text-secondary) !important;
+            text-decoration: none !important;
+            font-family: 'Courier New', monospace !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .footer-menu a:hover {
+            color: var(--primary) !important;
+            text-shadow: var(--glow) !important;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .categories-section {
@@ -432,6 +478,15 @@ function hackernull_scripts() {
             }
             .newsletter-section {
                 padding: 2rem 1rem !important;
+            }
+            .footer-content {
+                flex-direction: column !important;
+                gap: var(--spacing-md) !important;
+                text-align: center !important;
+            }
+            .footer-menu {
+                flex-direction: column !important;
+                align-items: center !important;
             }
         }
     ";
