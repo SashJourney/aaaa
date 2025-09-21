@@ -32,6 +32,177 @@ function hackernull_scripts() {
     
     // Add inline CSS to ensure styles are loaded
     $custom_css = "
+        /* Terminal Theme */
+        .section-header {
+            margin-bottom: 3rem !important;
+            text-align: center !important;
+            position: relative !important;
+        }
+
+        .terminal-line {
+            font-family: 'Courier New', monospace !important;
+            color: var(--text-secondary) !important;
+            margin-bottom: 1rem !important;
+            display: inline-block !important;
+            padding: 0.5rem 1rem !important;
+            background: var(--bg-card) !important;
+            border-radius: 4px !important;
+            border: 1px solid var(--border-color) !important;
+        }
+
+        .terminal-prompt {
+            color: var(--primary) !important;
+        }
+
+        .command {
+            color: var(--text-primary) !important;
+        }
+
+        /* Categories Grid */
+        .categories-section {
+            margin: 4rem 0 !important;
+            position: relative !important;
+            padding: 2rem 0 !important;
+        }
+
+        .category-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 2rem !important;
+            position: relative !important;
+        }
+
+        .category-card {
+            background: var(--bg-card) !important;
+            padding: 2rem !important;
+            border-radius: 8px !important;
+            text-decoration: none !important;
+            color: var(--text-primary) !important;
+            transition: all 0.3s ease !important;
+            border: 1px solid var(--border-color) !important;
+            display: flex !important;
+            gap: 1.5rem !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+
+        .category-icon {
+            flex-shrink: 0 !important;
+            width: 60px !important;
+            height: 60px !important;
+            background: var(--bg-dark) !important;
+            border-radius: 12px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            border: 1px solid var(--border-color) !important;
+            position: relative !important;
+            z-index: 1 !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .category-icon i {
+            font-size: 1.5rem !important;
+            color: var(--primary) !important;
+            text-shadow: var(--glow) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .category-content {
+            flex: 1 !important;
+        }
+
+        .category-content h3 {
+            font-size: 1.25rem !important;
+            margin: 0 0 0.75rem !important;
+            color: var(--primary) !important;
+            font-family: 'Courier New', monospace !important;
+            position: relative !important;
+            display: inline-block !important;
+        }
+
+        .category-content h3::before {
+            content: '>' !important;
+            color: var(--primary) !important;
+            margin-right: 0.5rem !important;
+            opacity: 0 !important;
+            transform: translateX(-10px) !important;
+            display: inline-block !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .category-description {
+            color: var(--text-secondary) !important;
+            font-size: 0.9rem !important;
+            margin-bottom: 1rem !important;
+            line-height: 1.5 !important;
+            font-family: 'Courier New', monospace !important;
+        }
+
+        .category-meta {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            margin-top: 1rem !important;
+            font-family: 'Courier New', monospace !important;
+        }
+
+        .post-count {
+            font-size: 0.9rem !important;
+            color: var(--text-secondary) !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.5rem !important;
+            background: var(--bg-dark) !important;
+            padding: 0.25rem 0.75rem !important;
+            border-radius: 12px !important;
+            border: 1px solid var(--border-color) !important;
+        }
+
+        .view-more {
+            font-size: 0.9rem !important;
+            color: var(--primary) !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.5rem !important;
+            opacity: 0 !important;
+            transform: translateX(-10px) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px) !important;
+            border-color: var(--primary) !important;
+            box-shadow: var(--glow) !important;
+            background: linear-gradient(145deg, var(--bg-card), var(--bg-dark)) !important;
+        }
+
+        .category-card:hover .view-more {
+            opacity: 1 !important;
+            transform: translateX(0) !important;
+        }
+
+        .category-card:hover .category-icon {
+            background: var(--primary) !important;
+            border-color: var(--primary) !important;
+            transform: rotate(-5deg) !important;
+        }
+
+        .category-card:hover .category-icon i {
+            color: var(--bg-dark) !important;
+            transform: rotate(5deg) !important;
+        }
+
+        .category-card:hover h3::before {
+            opacity: 1 !important;
+            transform: translateX(0) !important;
+        }
+
+        @media (max-width: 768px) {
+            .category-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
         :root {
             --primary: #00ff00;
             --primary-hover: #00cc00;
