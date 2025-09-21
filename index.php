@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 
 <main class="site-main">
+    <!-- Network Animation Background -->
+    <div id="particles-js" class="particles-background"></div>
+
     <!-- Featured Section -->
     <section class="featured-section">
         <div class="container">
