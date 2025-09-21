@@ -1,18 +1,37 @@
 <?php get_header(); ?>
 
 <main>
-    <h1>✅ Welcome to Hackernull Theme!</h1>
+  <section>
+    <h2>Latest News</h2>
+    <div class="post-grid">
+      <?php
+        $latest = new WP_Query(['posts_per_page' => 6, 'category_name' => 'news']);
+        while($latest->have_posts()): $latest->the_post(); ?>
+          <article>
+            <a href="<?php the_permalink(); ?>">
+              <?php the_post_thumbnail('medium'); ?>
+              <h3><?php the_title(); ?></h3>
+            </a>
+          </article>
+      <?php endwhile; wp_reset_postdata(); ?>
+    </div>
+  </section>
 
-    <?php if ( have_posts() ) : ?>
-        <?php while ( have_posts() ) : the_post(); ?>
-            <article>
-                <h2><?php the_title(); ?></h2>
-                <div><?php the_content(); ?></div>
-            </article>
-        <?php endwhile; ?>
-    <?php else : ?>
-        <p>No posts found. Add one in WP Admin → Posts.</p>
-    <?php endif; ?>
+  <section>
+    <h2>Cyber News & Risks</h2>
+    <div class="post-grid">
+      <?php
+        $cyber = new WP_Query(['posts_per_page' => 6, 'category_name' => 'cyber']);
+        while($cyber->have_posts()): $cyber->the_post(); ?>
+          <article>
+            <a href="<?php the_permalink(); ?>">
+              <?php the_post_thumbnail('medium'); ?>
+              <h3><?php the_title(); ?></h3>
+            </a>
+          </article>
+      <?php endwhile; wp_reset_postdata(); ?>
+    </div>
+  </section>
 </main>
 
 <?php get_footer(); ?>
