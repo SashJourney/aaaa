@@ -137,26 +137,44 @@
                     while ($latest_posts->have_posts()): $latest_posts->the_post(); ?>
                         <article class="post-card">
                             <div class="post-image">
-                                <?php if (has_post_thumbnail()): ?>
-                                    <a href="<?php the_permalink(); ?>">
-                                        <?php the_post_thumbnail('category-thumb'); ?>
-                                    </a>
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php 
+                                    if (has_post_thumbnail()) {
+                                        the_post_thumbnail('post-thumbnail');
+                                    } else {
+                                        // Default image if no featured image is set
+                                        echo '<img src="' . get_template_directory_uri() . '/assets/images/default-thumb.jpg" alt="Default Thumbnail">';
+                                    }
+                                    ?>
+                                </a>
+                                <?php
+                                $categories = get_the_category();
+                                if ($categories): ?>
+                                    <div class="post-categories">
+                                        <?php foreach($categories as $category): ?>
+                                            <span class="post-category">
+                                                <?php echo esc_html($category->name); ?>
+                                            </span>
+                                        <?php endforeach; ?>
+                                    </div>
                                 <?php endif; ?>
                             </div>
                             <div class="post-content">
                                 <div class="post-meta">
-                                    <span class="post-date"><?php echo get_the_date(); ?></span>
-                                    <?php
-                                    $categories = get_the_category();
-                                    if ($categories): ?>
-                                        <span class="post-category">
-                                            <?php echo esc_html($categories[0]->name); ?>
-                                        </span>
-                                    <?php endif; ?>
+                                    <span class="post-date">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <?php echo get_the_date('M j, Y'); ?>
+                                    </span>
+                                    <span class="post-author">
+                                        <i class="fas fa-user"></i>
+                                        <?php the_author(); ?>
+                                    </span>
                                 </div>
                                 <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                                 <p><?php echo wp_trim_words(get_the_excerpt(), 15); ?></p>
-                                <a href="<?php the_permalink(); ?>" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                <a href="<?php the_permalink(); ?>" class="read-more">
+                                    Read More <i class="fas fa-arrow-right"></i>
+                                </a>
                             </div>
                         </article>
                     <?php endwhile;
