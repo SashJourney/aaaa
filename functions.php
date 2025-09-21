@@ -604,13 +604,26 @@ function hackernull_scripts() {
             z-index: 2 !important;
         }
 
+        .site-header {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            padding: 1rem !important;
+            background: rgba(0, 0, 0, 0.8) !important;
+            position: relative !important;
+            z-index: 100 !important;
+        }
+
         .site-branding {
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
-            gap: 0.5rem !important;
-            padding: 1rem !important;
+            gap: 0.75rem !important;
+            padding: 1rem 2rem !important;
             position: relative !important;
+            background: rgba(0, 0, 0, 0.4) !important;
+            border: 1px solid rgba(0, 255, 0, 0.1) !important;
+            border-radius: 4px !important;
         }
 
         .site-branding::before {
@@ -619,7 +632,7 @@ function hackernull_scripts() {
             font-family: 'Courier New', monospace !important;
             font-size: 2rem !important;
             position: absolute !important;
-            left: 0 !important;
+            left: 1rem !important;
             top: 50% !important;
             transform: translateY(-50%) !important;
             opacity: 0.7 !important;
@@ -631,8 +644,9 @@ function hackernull_scripts() {
             font-family: 'Courier New', monospace !important;
             font-weight: bold !important;
             margin: 0 !important;
-            padding-left: 2.5rem !important;
+            padding-left: 3rem !important;
             position: relative !important;
+            min-width: 300px !important;
         }
 
         .site-title a {
@@ -644,26 +658,20 @@ function hackernull_scripts() {
             display: inline-block !important;
             padding: 0.5rem 1rem !important;
             text-shadow: 0 0 10px var(--primary) !important;
-            opacity: 0 !important;
-            animation: typeWriter 3s steps(10) forwards !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            border-right: 2px solid var(--primary) !important;
+            animation: typing 3.5s steps(20, end), blink-caret .75s step-end infinite !important;
         }
 
-        .site-title a::after {
-            content: '_' !important;
-            position: absolute !important;
-            right: -0.5rem !important;
-            animation: blink 1s step-end infinite !important;
+        @keyframes typing {
+            from { width: 0 !important; }
+            to { width: 100% !important; }
         }
 
-        @keyframes typeWriter {
-            from {
-                width: 0 !important;
-                opacity: 1 !important;
-            }
-            to {
-                width: 100% !important;
-                opacity: 1 !important;
-            }
+        @keyframes blink-caret {
+            from, to { border-color: transparent !important; }
+            50% { border-color: var(--primary) !important; }
         }
 
         @keyframes blink {
@@ -676,18 +684,20 @@ function hackernull_scripts() {
             font-family: 'Courier New', monospace !important;
             font-size: 0.9rem !important;
             opacity: 0 !important;
-            transform: translateY(-1rem) !important;
-            animation: fadeInUp 0.5s ease-out 3s forwards !important;
+            margin-top: 0.5rem !important;
+            animation: fadeIn 0.5s ease-out 3.5s forwards !important;
             text-align: center !important;
             max-width: none !important;
-            padding: 0 !important;
+            padding: 0.25rem 1rem !important;
             border: none !important;
+            background: rgba(0, 255, 0, 0.05) !important;
+            border-radius: 2px !important;
+            letter-spacing: 1px !important;
         }
 
-        @keyframes fadeInUp {
+        @keyframes fadeIn {
             to {
-                opacity: 1 !important;
-                transform: translateY(0) !important;
+                opacity: 0.8 !important;
             }
         }
 
