@@ -648,26 +648,94 @@ function hackernull_scripts() {
                 0 0 92px var(--primary),
                 0 0 102px var(--primary),
                 0 0 151px var(--primary) !important;
-            animation: flicker 3s infinite alternate !important;
+            animation: powerFlicker 5s infinite !important;
         }
 
-        /* Electric effect */
-        @keyframes flicker {
-            0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
-                opacity: 0.99 !important;
+        /* Power flicker effect */
+        @keyframes powerFlicker {
+            0%, 100% {
+                opacity: 1 !important;
                 text-shadow: 
-                    0 0 4px #fff,
-                    0 0 11px #fff,
-                    0 0 19px #fff,
-                    0 0 40px var(--primary),
-                    0 0 80px var(--primary),
-                    0 0 90px var(--primary),
-                    0 0 100px var(--primary),
-                    0 0 150px var(--primary) !important;
+                    0 0 7px #fff,
+                    0 0 10px #fff,
+                    0 0 21px #fff,
+                    0 0 42px var(--primary),
+                    0 0 82px var(--primary),
+                    0 0 92px var(--primary),
+                    0 0 102px var(--primary),
+                    0 0 151px var(--primary) !important;
             }
-            20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
-                opacity: 0.4 !important;
+            35.1% {
+                opacity: 1 !important;
+                text-shadow: 
+                    0 0 7px #fff,
+                    0 0 10px #fff,
+                    0 0 21px #fff,
+                    0 0 42px var(--primary),
+                    0 0 82px var(--primary),
+                    0 0 92px var(--primary),
+                    0 0 102px var(--primary),
+                    0 0 151px var(--primary) !important;
+            }
+            35.5% {
+                opacity: 0.1 !important;
                 text-shadow: none !important;
+            }
+            35.7% {
+                opacity: 1 !important;
+                text-shadow: 
+                    0 0 7px #fff,
+                    0 0 10px #fff,
+                    0 0 21px #fff,
+                    0 0 42px var(--primary),
+                    0 0 82px var(--primary),
+                    0 0 92px var(--primary),
+                    0 0 102px var(--primary),
+                    0 0 151px var(--primary) !important;
+            }
+            35.9% {
+                opacity: 0.1 !important;
+                text-shadow: none !important;
+            }
+            36% {
+                opacity: 1 !important;
+                text-shadow: 
+                    0 0 7px #fff,
+                    0 0 10px #fff,
+                    0 0 21px #fff,
+                    0 0 42px var(--primary),
+                    0 0 82px var(--primary),
+                    0 0 92px var(--primary),
+                    0 0 102px var(--primary),
+                    0 0 151px var(--primary) !important;
+            }
+            85.1% {
+                opacity: 1 !important;
+                text-shadow: 
+                    0 0 7px #fff,
+                    0 0 10px #fff,
+                    0 0 21px #fff,
+                    0 0 42px var(--primary),
+                    0 0 82px var(--primary),
+                    0 0 92px var(--primary),
+                    0 0 102px var(--primary),
+                    0 0 151px var(--primary) !important;
+            }
+            85.3% {
+                opacity: 0.1 !important;
+                text-shadow: none !important;
+            }
+            85.4% {
+                opacity: 1 !important;
+                text-shadow: 
+                    0 0 7px #fff,
+                    0 0 10px #fff,
+                    0 0 21px #fff,
+                    0 0 42px var(--primary),
+                    0 0 82px var(--primary),
+                    0 0 92px var(--primary),
+                    0 0 102px var(--primary),
+                    0 0 151px var(--primary) !important;
             }
         }
 
@@ -678,10 +746,10 @@ function hackernull_scripts() {
             position: absolute !important;
             top: 50% !important;
             width: 100px !important;
-            height: 3px !important;
+            height: 2px !important;
             background: var(--primary) !important;
             transform-origin: center !important;
-            animation: electric-line 2s infinite !important;
+            animation: powerFlicker 5s infinite !important;
             box-shadow:
                 0 0 7px #fff,
                 0 0 10px #fff,
@@ -701,19 +769,29 @@ function hackernull_scripts() {
             transform: translateY(-50%) !important;
         }
 
-        @keyframes electric-line {
-            0% {
-                opacity: 1 !important;
-                transform: translateY(-50%) scaleX(1) !important;
-            }
-            50% {
-                opacity: 0.5 !important;
-                transform: translateY(-50%) scaleX(0.8) !important;
-            }
-            100% {
-                opacity: 1 !important;
-                transform: translateY(-50%) scaleX(1) !important;
-            }
+        /* Add a second set of lines for layered effect */
+        .site-title::before,
+        .site-title::after {
+            box-shadow:
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff,
+                0 0 42px var(--primary),
+                0 0 82px var(--primary) !important;
+        }
+
+        .site-title::before {
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.4),
+                0 2px 7px var(--primary),
+                0 5px 15px var(--primary) !important;
+        }
+
+        .site-title::after {
+            box-shadow:
+                0 -1px 0 rgba(255, 255, 255, 0.4),
+                0 -2px 7px var(--primary),
+                0 -5px 15px var(--primary) !important;
         }
 
         /* Electricity particles */
