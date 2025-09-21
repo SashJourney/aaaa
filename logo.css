@@ -1,0 +1,19 @@
+.site-title a {
+    font-family: 'Courier New', monospace !important;
+    font-style: italic !important;
+    animation: powerFlicker 3s infinite !important;
+}
+
+@keyframes powerFlicker {
+    0%, 100% { opacity: 1; }
+    32.9% { opacity: 1; }
+    33% { opacity: 0; }
+    33.1% { opacity: 1; }
+    33.4% { opacity: 0; }
+    33.5% { opacity: 1; }
+    66.9% { opacity: 1; }
+    67% { opacity: 0; }
+    67.1% { opacity: 1; }
+    67.4% { opacity: 0; }
+    67.5% { opacity: 1; }
+}

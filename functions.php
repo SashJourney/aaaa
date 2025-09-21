@@ -32,7 +32,7 @@ add_action('after_setup_theme', 'hackernull_theme_setup');
 function hackernull_scripts() {
     // Styles
     wp_enqueue_style('hackernull-style', get_stylesheet_uri(), array(), '1.0.1');
-    wp_enqueue_style('hackernull-animation', get_template_directory_uri() . '/animation.css', array(), '1.0.0');
+    wp_enqueue_style('hackernull-logo', get_template_directory_uri() . '/logo.css', array(), '1.0.0');
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css', array(), '6.0.0');
     
     // Add inline CSS to ensure styles are loaded
