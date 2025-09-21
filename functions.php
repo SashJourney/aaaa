@@ -702,15 +702,6 @@ function hackernull_scripts() {
             color: var(--text-secondary) !important;
             opacity: 0.7 !important;
         }
-            --glow: 0 0 10px rgba(0, 255, 0, 0.2);
-            --glow-strong: 0 0 20px rgba(0, 255, 0, 0.4);
-            --terminal-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
-            --card-bg: linear-gradient(145deg, #0a0f0a, #111111);
-            --card-bg-hover: linear-gradient(145deg, #111111, #0a0f0a);
-            --terminal-prompt: '> ';
-            --scanline-color: rgba(0, 255, 0, 0.1);
-            --matrix-bg: linear-gradient(45deg, transparent, var(--primary-glow), transparent);
-        }
 
         @keyframes scanline {
             0% { transform: translateY(-100%); }
