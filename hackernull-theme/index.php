@@ -1,5 +1,4 @@
 <?php
-// Minimal guaranteed working WordPress theme
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -9,20 +8,7 @@
 </head>
 <body>
     <h1>✅ Welcome to Hackernull Theme!</h1>
-    <p>If you see this, the theme is working correctly 🎉</p>
-
-    <?php
-    // Show posts if they exist
-    if ( have_posts() ) :
-        while ( have_posts() ) : the_post();
-            echo '<h2>' . get_the_title() . '</h2>';
-            the_content();
-        endwhile;
-    else :
-        echo '<p>No posts yet. Add one in WP Admin → Posts.</p>';
-    endif;
-    ?>
-
+    <p>If you see this, the theme is working 🎉</p>
     <?php wp_footer(); ?>
 </body>
 </html>
