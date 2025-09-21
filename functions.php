@@ -27,9 +27,9 @@ add_action('after_setup_theme', 'hackernull_theme_setup');
 // Enqueue scripts and styles
 function hackernull_scripts() {
     // Styles
-    wp_enqueue_style('hackernull-style', get_stylesheet_uri(), array(), '1.0.0');
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css', array(), '6.0.0');
-    wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap', array(), null);
+    wp_enqueue_style('hackernull-style', get_stylesheet_uri(), array(), time()); // Force CSS refresh
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+    wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
     // Scripts
     wp_enqueue_script('jquery');
