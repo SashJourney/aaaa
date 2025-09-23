@@ -8,8 +8,8 @@ html {
 /* Base typography */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-    font-size: 1rem !important;
-    line-height: 1.4 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.3 !important;
     color: var(--text-primary) !important;
     background-color: var(--bg-dark) !important;
 }
@@ -29,124 +29,164 @@ body {
     --glow-strong: 0 0 20px rgba(0, 255, 0, 0.4);
 }
 
-/* Section spacing */
+/* === Compact Layout Fixes === */
+
+/* Reduce global spacing */
 section, .section {
-    padding: 40px 0 !important;
-    margin-bottom: 40px !important;
+    padding: 20px 0 !important;
+    margin-bottom: 20px !important;
 }
 
-/* Headings scale */
-h1 { font-size: 2rem !important; }
-h2 { font-size: 1.5rem !important; }
-h3 { font-size: 1.25rem !important; }
-h4 { font-size: 1.1rem !important; }
-h5, h6 { font-size: 1rem !important; }
-
-/* Card base styles */
-.card, .category-card {
-    max-width: 250px !important;
-    padding: 15px !important;
-    margin: 0 !important;
+/* Headings smaller & tighter */
+h1 { 
+    font-size: 1.8rem !important; 
+    margin-bottom: 10px !important; 
+}
+h2 { 
+    font-size: 1.3rem !important; 
+    margin-bottom: 8px !important; 
+}
+h3 { 
+    font-size: 1.1rem !important; 
+    margin-bottom: 6px !important; 
 }
 
-/* Container width */
-.container {
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-    padding: 0 15px !important;
-}
-
-/* Grid adjustments */
+/* Grid & cards tighter */
 .grid, .category-grid {
-    gap: 15px !important;
+    gap: 10px !important;
+    justify-content: center !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    width: 100% !important;
 }
 
-/* Header adjustments */
-.site-header {
-    padding: 10px 0 !important;
+.card, .category-card {
+    max-width: 200px !important;
+    padding: 12px !important;
+    margin: 0 auto !important;
+    height: fit-content !important;
+}
+
+/* Category card internals */
+.category-icon {
+    width: 24px !important;
+    height: 24px !important;
+    margin-bottom: 6px !important;
+}
+
+.category-icon i {
+    font-size: 0.9rem !important;
+}
+
+.category-card h3 {
+    font-size: 0.9rem !important;
+    margin: 0 0 4px 0 !important;
+    line-height: 1.2 !important;
+}
+
+.category-description {
+    font-size: 0.75rem !important;
+    line-height: 1.3 !important;
+    margin: 4px 0 !important;
+    max-height: 2.6em !important;
+}
+
+.post-count {
+    font-size: 0.7rem !important;
+    padding: 2px 8px !important;
+    margin-top: 6px !important;
+}
+
+/* Limit container width better */
+.container {
+    max-width: 1000px !important;
+    padding: 0 10px !important;
+    margin: 0 auto !important;
+}
+
+/* Post titles + meta */
+.post-title { 
+    font-size: 1.2rem !important; 
+}
+.post-meta { 
+    font-size: 0.7rem !important; 
+}
+
+/* Footer compact */
+.site-footer {
+    padding: 15px 0 !important;
+    font-size: 0.8rem !important;
+}
+
+/* Terminal/command styling */
+.terminal-line {
+    font-size: 0.8rem !important;
+    padding: 4px 8px !important;
+    margin-bottom: 6px !important;
 }
 
 /* Navigation */
 .nav-menu {
-    font-size: 0.9rem !important;
+    font-size: 0.8rem !important;
+    gap: 8px !important;
 }
 
 .nav-menu a {
-    padding: 5px 10px !important;
+    padding: 4px 8px !important;
 }
 
 /* Search box */
+.search-box {
+    max-width: 160px !important;
+}
+
 .search-box input {
-    padding: 5px 10px !important;
-    font-size: 0.9rem !important;
+    font-size: 0.8rem !important;
+    padding: 4px 8px !important;
+    height: 28px !important;
 }
 
-/* Responsive layout */
-@media (min-width: 1200px) {
-    body {
-        max-width: 1200px !important;
-        margin: 0 auto !important;
-    }
+/* Section titles with lines */
+h2.section-title {
+    font-size: 1.3rem !important;
+    margin: 15px 0 !important;
+    gap: 10px !important;
 }
 
+h2.section-title::before,
+h2.section-title::after {
+    height: 1px !important;
+}
+
+/* Mobile adjustments */
 @media (max-width: 768px) {
     html {
         font-size: 13px !important;
     }
-    
-    section, .section {
-        padding: 30px 0 !important;
-        margin-bottom: 30px !important;
+
+    .grid, .category-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)) !important;
     }
-    
+
+    .card, .category-card {
+        max-width: 160px !important;
+        padding: 10px !important;
+    }
+
+    h1 { font-size: 1.5rem !important; }
+    h2 { font-size: 1.2rem !important; }
+    h3 { font-size: 1rem !important; }
+
     .container {
-        padding: 0 10px !important;
+        padding: 0 8px !important;
     }
-}
 
-/* Terminal/code styling */
-.terminal-line, code, pre {
-    font-family: 'Share Tech Mono', monospace !important;
-    font-size: 0.9rem !important;
-    line-height: 1.4 !important;
-}
-
-/* Button and input sizing */
-button, .button, input[type="button"], input[type="submit"] {
-    padding: 8px 15px !important;
-    font-size: 0.9rem !important;
-}
-
-input[type="text"], input[type="email"], input[type="search"], textarea {
-    padding: 8px !important;
-    font-size: 0.9rem !important;
-}
-
-/* Post content */
-.post-title {
-    font-size: 1.5rem !important;
-}
-
-.post-meta {
-    font-size: 0.8rem !important;
-}
-
-.post-content {
-    font-size: 1rem !important;
-    line-height: 1.6 !important;
-}
-
-/* Footer */
-.site-footer {
-    padding: 30px 0 !important;
-    font-size: 0.9rem !important;
+    section, .section {
+        padding: 15px 0 !important;
+        margin-bottom: 15px !important;
+    }
 }
 
 /* Utility classes */
-.text-small {
-    font-size: 0.8rem !important;
-}
-
-.text-large {
-    font-size: 1.2rem !important;
-}
+.text-small { font-size: 0.7rem !important; }
+.text-large { font-size: 1.1rem !important; }
