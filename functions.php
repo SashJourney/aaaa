@@ -35,7 +35,7 @@ function hackernull_scripts() {
     wp_enqueue_style('hackernull-logo', get_template_directory_uri() . '/logo.css', array(), '1.0.0');
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css', array(), '6.0.0');
     
-    // Add inline CSS to ensure styles are loaded
+    // Add inline CSS for dynamic elements only
     $custom_css = "
         :root {
             --primary: #00ff00;
