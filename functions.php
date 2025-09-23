@@ -63,7 +63,7 @@ function hackernull_scripts() {
 
         .container {
             width: 100% !important;
-            max-width: 1200px !important;
+            max-width: 800px !important;
             margin: 0 auto !important;
             padding: 0 1rem !important;
         }
@@ -102,7 +102,7 @@ function hackernull_scripts() {
 
         .category-grid {
             display: grid !important;
-            grid-template-columns: repeat(3, minmax(250px, 1fr)) !important;
+            grid-template-columns: repeat(3, minmax(180px, 1fr)) !important;
             gap: 1.5rem !important;
             position: relative !important;
             margin: 2rem 0 3rem !important;
@@ -353,7 +353,7 @@ function hackernull_scripts() {
         /* Post Cards */
         .post-grid {
             display: grid !important;
-            grid-template-columns: repeat(3, minmax(250px, 1fr)) !important;
+            grid-template-columns: repeat(3, minmax(180px, 1fr)) !important;
             gap: 1.5rem !important;
             margin-bottom: 2rem !important;
             width: 100% !important;
@@ -536,7 +536,7 @@ function hackernull_scripts() {
 
         .container {
             width: 100% !important;
-            max-width: 1200px !important;
+            max-width: 800px !important;
             margin: 0 auto !important;
             padding: 0 1rem !important;
         }
@@ -1053,7 +1053,7 @@ function hackernull_scripts() {
 
         /* Layout */
         .site-main {
-            max-width: 1200px !important;
+            max-width: 800px !important;
             margin: 0 auto !important;
             padding: 2rem !important;
         }
