@@ -1,5 +1,5 @@
 /*
-Theme Name: hackernull
+Theme Name: hackernull-theme
 Theme URI: https://hackernull.com
 Author: HackerNull
 Description: Ultra-fast, dark, modern cybersecurity theme with animated elements and clean design.
@@ -874,7 +874,7 @@ h2.section-title::after {
 .archive-title {
   font-size: 1.8rem;
   margin-bottom: var(--spacing-xl);
-  text-align: center;
+    text-align: center;
   color: var(--primary);
   border-bottom: 2px solid var(--border-color);
   padding-bottom: var(--spacing-md);
