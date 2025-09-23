@@ -1,192 +1,279 @@
 /* Theme Name: hackernull-theme */
 
-/* Global scale fixes */
+/* ==============================
+   Base + Global Scale
+============================== */
 html {
-    font-size: 14px !important;
+  font-size: 14px; /* base scaling */
 }
 
-/* Base typography */
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-    font-size: 0.9rem !important;
-    line-height: 1.3 !important;
-    color: var(--text-primary) !important;
-    background-color: var(--bg-dark) !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+  background-color: var(--bg-dark);
+  margin: 0;
+  padding: 0;
 }
 
-/* Root variables */
+/* ==============================
+   Root Variables
+============================== */
 :root {
-    --primary: #00ff00;
-    --primary-hover: #00cc00;
-    --primary-glow: #00ff0033;
-    --bg-dark: #000000;
-    --bg-card: #0a0f0a;
-    --bg-card-hover: #111111;
-    --text-primary: #ffffff;
-    --text-secondary: #888888;
-    --border-color: rgba(0, 255, 0, 0.1);
-    --glow: 0 0 10px rgba(0, 255, 0, 0.2);
-    --glow-strong: 0 0 20px rgba(0, 255, 0, 0.4);
+  --primary: #00ff00;
+  --primary-hover: #00cc00;
+  --primary-glow: #00ff0033;
+  --bg-dark: #000000;
+  --bg-card: #0a0f0a;
+  --bg-card-hover: #111111;
+  --text-primary: #ffffff;
+  --text-secondary: #888888;
+  --border-color: rgba(0, 255, 0, 0.1);
+  --glow: 0 0 10px rgba(0, 255, 0, 0.2);
+  --glow-strong: 0 0 20px rgba(0, 255, 0, 0.4);
 }
 
-/* === Compact Layout Fixes === */
-
-/* Reduce global spacing */
+/* ==============================
+   Section Spacing
+============================== */
 section, .section {
-    padding: 20px 0 !important;
-    margin-bottom: 20px !important;
+  padding: 20px 0;
+  margin-bottom: 20px;
 }
 
-/* Headings smaller & tighter */
-h1 { 
-    font-size: 1.8rem !important; 
-    margin-bottom: 10px !important; 
-}
-h2 { 
-    font-size: 1.3rem !important; 
-    margin-bottom: 8px !important; 
-}
-h3 { 
-    font-size: 1.1rem !important; 
-    margin-bottom: 6px !important; 
-}
-
-/* Grid & cards tighter */
-.grid, .category-grid {
-    gap: 10px !important;
-    justify-content: center !important;
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
-    width: 100% !important;
-}
-
-.card, .category-card {
-    max-width: 200px !important;
-    padding: 12px !important;
-    margin: 0 auto !important;
-    height: fit-content !important;
-}
-
-/* Category card internals */
-.category-icon {
-    width: 24px !important;
-    height: 24px !important;
-    margin-bottom: 6px !important;
-}
-
-.category-icon i {
-    font-size: 0.9rem !important;
-}
-
-.category-card h3 {
-    font-size: 0.9rem !important;
-    margin: 0 0 4px 0 !important;
-    line-height: 1.2 !important;
-}
-
-.category-description {
-    font-size: 0.75rem !important;
-    line-height: 1.3 !important;
-    margin: 4px 0 !important;
-    max-height: 2.6em !important;
-}
-
-.post-count {
-    font-size: 0.7rem !important;
-    padding: 2px 8px !important;
-    margin-top: 6px !important;
-}
-
-/* Limit container width better */
-.container {
-    max-width: 1000px !important;
-    padding: 0 10px !important;
-    margin: 0 auto !important;
-}
-
-/* Post titles + meta */
-.post-title { 
-    font-size: 1.2rem !important; 
-}
-.post-meta { 
-    font-size: 0.7rem !important; 
-}
-
-/* Footer compact */
-.site-footer {
-    padding: 15px 0 !important;
-    font-size: 0.8rem !important;
-}
-
-/* Terminal/command styling */
-.terminal-line {
-    font-size: 0.8rem !important;
-    padding: 4px 8px !important;
-    margin-bottom: 6px !important;
-}
-
-/* Navigation */
-.nav-menu {
-    font-size: 0.8rem !important;
-    gap: 8px !important;
-}
-
-.nav-menu a {
-    padding: 4px 8px !important;
-}
-
-/* Search box */
-.search-box {
-    max-width: 160px !important;
-}
-
-.search-box input {
-    font-size: 0.8rem !important;
-    padding: 4px 8px !important;
-    height: 28px !important;
-}
+/* ==============================
+   Headings
+============================== */
+h1 { font-size: 1.6rem; margin: 0 0 10px; }
+h2 { font-size: 1.3rem; margin: 0 0 8px; }
+h3 { font-size: 1.1rem; margin: 0 0 6px; }
+h4, h5, h6 { font-size: 1rem; margin: 0 0 5px; }
 
 /* Section titles with lines */
 h2.section-title {
-    font-size: 1.3rem !important;
-    margin: 15px 0 !important;
-    gap: 10px !important;
+  font-size: 1.3rem;
+  margin: 15px 0;
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 h2.section-title::before,
 h2.section-title::after {
-    height: 1px !important;
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
 }
 
-/* Mobile adjustments */
+/* ==============================
+   Container
+============================== */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* ==============================
+   Grid + Cards
+============================== */
+.grid, .category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.card, .category-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--glow);
+  border-radius: 6px;
+  padding: 12px;
+  text-align: center;
+  transition: 0.2s ease;
+  height: fit-content;
+}
+
+.card:hover, .category-card:hover {
+  background: var(--bg-card-hover);
+  box-shadow: var(--glow-strong);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* Category card internals */
+.category-icon {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  color: var(--primary);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 6px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  border: 1px solid var(--border-color);
+}
+
+.category-card h3 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.category-description {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-count {
+  font-size: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  color: var(--text-secondary);
+  background: var(--bg-dark);
+}
+
+/* ==============================
+   Terminal / Code
+============================== */
+.terminal-line, code, pre {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  background: #0a0f0a;
+  padding: 6px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  color: var(--primary);
+  box-shadow: inset 0 0 5px rgba(0, 255, 0, 0.2);
+}
+
+/* ==============================
+   Navigation
+============================== */
+.nav-menu {
+  font-size: 0.85rem;
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  padding: 4px 8px;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: 0.2s ease;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+.nav-menu a:hover {
+  color: var(--primary);
+  border-color: var(--border-color);
+  box-shadow: var(--glow);
+}
+
+/* ==============================
+   Search Box
+============================== */
+.search-box {
+  max-width: 160px;
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  font-size: 0.8rem;
+  padding: 4px 8px 4px 24px;
+  height: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  color: var(--text-primary);
+  transition: 0.2s ease;
+}
+
+.search-box input:focus {
+  border-color: var(--primary);
+  box-shadow: var(--glow);
+  outline: none;
+}
+
+.search-box::before {
+  content: ">";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary);
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* ==============================
+   Footer
+============================== */
+.site-footer {
+  padding: 15px 0;
+  font-size: 0.8rem;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  margin-top: 30px;
+}
+
+/* ==============================
+   Responsive
+============================== */
 @media (max-width: 768px) {
-    html {
-        font-size: 13px !important;
-    }
+  html { font-size: 13px; }
 
-    .grid, .category-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)) !important;
-    }
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.2rem; }
+  h3 { font-size: 1rem; }
 
-    .card, .category-card {
-        max-width: 160px !important;
-        padding: 10px !important;
-    }
+  .grid, .category-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 
-    h1 { font-size: 1.5rem !important; }
-    h2 { font-size: 1.2rem !important; }
-    h3 { font-size: 1rem !important; }
+  .card, .category-card {
+    padding: 10px;
+  }
 
-    .container {
-        padding: 0 8px !important;
-    }
+  section, .section {
+    padding: 15px 0;
+    margin-bottom: 15px;
+  }
 
-    section, .section {
-        padding: 15px 0 !important;
-        margin-bottom: 15px !important;
-    }
+  .container {
+    padding: 0 10px;
+  }
+
+  .nav-menu {
+    gap: 6px;
+  }
+
+  .nav-menu a {
+    padding: 3px 6px;
+  }
 }
-
-/* Utility classes */
-.text-small { font-size: 0.7rem !important; }
-.text-large { font-size: 1.1rem !important; }
