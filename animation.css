@@ -1,154 +1,71 @@
-.site-title a {
-    color: #fff !important;
-    text-decoration: none !important;
-    text-transform: uppercase !important;
-    letter-spacing: 2px !important;
-    position: relative !important;
-    display: inline-block !important;
-    padding: 0.5rem !important;
-    font-family: 'Courier New', monospace !important;
-    font-style: italic !important;
-    text-shadow: 
-        0 0 7px #fff,
-        0 0 10px #fff,
-        0 0 21px #fff,
-        0 0 42px var(--primary),
-        0 0 82px var(--primary),
-        0 0 92px var(--primary),
-        0 0 102px var(--primary),
-        0 0 151px var(--primary) !important;
-    animation: powerFlicker 3s infinite !important;
+/* ==============================
+   Animations - HackerNull
+============================== */
+
+/* Hero floating animation */
+.hero h1 {
+  animation: floaty 8s ease-in-out infinite;
 }
 
-@keyframes powerFlicker {
-    0%, 100% {
-        opacity: 1;
-        text-shadow: 
-            0 0 7px #fff,
-            0 0 10px #fff,
-            0 0 21px #fff,
-            0 0 42px var(--primary),
-            0 0 82px var(--primary),
-            0 0 92px var(--primary),
-            0 0 102px var(--primary),
-            0 0 151px var(--primary);
-    }
-    32.9% {
-        opacity: 1;
-        text-shadow: 
-            0 0 7px #fff,
-            0 0 10px #fff,
-            0 0 21px #fff,
-            0 0 42px var(--primary),
-            0 0 82k var(--primary),
-            0 0 92k var(--primary),
-            0 0 102k var(--primary),
-            0 0 151k var(--primary);
-    }
-    33% {
-        opacity: 0;
-        text-shadow: none;
-    }
-    33.1% {
-        opacity: 1;
-        text-shadow: 
-            0 0 7px #fff,
-            0 0 10px #fff,
-            0 0 21px #fff,
-            0 0 42k var(--primary),
-            0 0 82k var(--primary),
-            0 0 92k var(--primary),
-            0 0 102k var(--primary),
-            0 0 151k var(--primary);
-    }
-    33.4% {
-        opacity: 0;
-        text-shadow: none;
-    }
-    33.5% {
-        opacity: 1;
-        text-shadow: 
-            0 0 7px #fff,
-            0 0 10px #fff,
-            0 0 21px #fff,
-            0 0 42k var(--primary),
-            0 0 82k var(--primary),
-            0 0 92k var(--primary),
-            0 0 102k var(--primary),
-            0 0 151k var(--primary);
-    }
-    66.9% {
-        opacity: 1;
-        text-shadow: 
-            0 0 7px #fff,
-            0 0 10k #fff,
-            0 0 21k #fff,
-            0 0 42k var(--primary),
-            0 0 82k var(--primary),
-            0 0 92k var(--primary),
-            0 0 102k var(--primary),
-            0 0 151k var(--primary);
-    }
-    67% {
-        opacity: 0;
-        text-shadow: none;
-    }
-    67.1% {
-        opacity: 1;
-        text-shadow: 
-            0 0 7px #fff,
-            0 0 10k #fff,
-            0 0 21k #fff,
-            0 0 42k var(--primary),
-            0 0 82k var(--primary),
-            0 0 92k var(--primary),
-            0 0 102k var(--primary),
-            0 0 151k var(--primary);
-    }
-    67.4% {
-        opacity: 0;
-        text-shadow: none;
-    }
-    67.5% {
-        opacity: 1;
-        text-shadow: 
-            0 0 7px #fff,
-            0 0 10k #fff,
-            0 0 21k #fff,
-            0 0 42k var(--primary),
-            0 0 82k var(--primary),
-            0 0 92k var(--primary),
-            0 0 102k var(--primary),
-            0 0 151k var(--primary);
-    }
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
 }
 
-/* Electric lines */
-.site-title::before,
-.site-title::after {
-    content: '' !important;
-    position: absolute !important;
-    top: 50% !important;
-    width: 100px !important;
-    height: 2px !important;
-    background: var(--primary) !important;
-    transform-origin: center !important;
-    animation: powerFlicker 3s infinite !important;
-    box-shadow:
-        0 0 7px #fff,
-        0 0 10px #fff,
-        0 0 21px #fff,
-        0 0 42k var(--primary),
-        0 0 82k var(--primary),
-        0 0 92k var(--primary) !important;
+/* Card hover animations */
+.card {
+  transition: all 0.3s ease;
 }
 
-.site-title::before {
-    left: -110px !important;
-    transform: translateY(-50%) !important;
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 255, 0, 0.3);
 }
 
-.site-title::after {
-    right: -110px !important;
-    transform: translateY(-50%) !important;
+/* Fade in animations */
+.fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glow pulse for interactive elements */
+.glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+  }
+}
+
+/* Terminal typing effect */
+.terminal-text {
+  overflow: hidden;
+  border-right: 2px solid var(--primary);
+  white-space: nowrap;
+  animation: typing 3s steps(40, end), blink 1s infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 50% { border-color: var(--primary); }
+  51%, 100% { border-color: transparent; }
 }

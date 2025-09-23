@@ -1,23 +1,22 @@
+<?php ?>
+</main>
+
 <footer class="site-footer">
     <div class="container">
-        <div class="footer-content">
-            <div class="footer-left">
-                <p class="copyright">
-                    <span class="terminal-prompt">[root@hackernull]# </span>
-                    <span class="typing-text">echo "© <?php echo date('Y'); ?> HackerNull - Empowering Ethical Hackers"</span>
-                </p>
+        <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: center;">
+            <div>
+                © <?php echo date('Y'); ?> <?php bloginfo('name'); ?> | 
+                <span class="terminal-line">Security, software, systems. No fluff — just signal.</span>
             </div>
-            <div class="footer-right">
-                <nav class="footer-nav">
-                    <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'footer-menu',
-                        'container' => false,
-                        'menu_class' => 'footer-menu',
-                        'fallback_cb' => false
-                    ));
-                    ?>
-                </nav>
+            <div>
+                <?php 
+                wp_nav_menu([
+                    'theme_location' => 'footer',
+                    'container' => false,
+                    'items_wrap' => '<ul class="footer-menu" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">%3$s</ul>',
+                    'fallback_cb' => false
+                ]); 
+                ?>
             </div>
         </div>
     </div>

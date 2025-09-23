@@ -1,218 +1,150 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap');
+/* ==============================
+   Logo Styles - HackerNull
+============================== */
 
-/* Base sizing adjustments - much smaller scale */
-:root {
-    --font-heading: 'Share Tech Mono', monospace;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-size-base: 11px;
-    --line-height-base: 1.4;
-    --font-size-h1: 1.2rem;
-    --font-size-h2: 1.1rem;
-    --font-size-h3: 1rem;
-    --font-size-h4: 0.9rem;
-    --font-size-small: 0.7rem;
-    --spacing-xs: 0.2rem;
-    --spacing-sm: 0.35rem;
-    --spacing-md: 0.5rem;
-    --spacing-lg: 0.75rem;
-    --container-width: 600px;
-}
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Logo adjustments */
+/* ==============================
+   Site Title / Logo
+============================== */
 .site-title {
-    position: relative !important;
-    overflow: hidden !important;
-    padding: var(--spacing-sm) 0 !important;
-    text-align: center !important;
-    margin: 0.5rem 0 !important;
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem 0;
+  text-align: center;
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-shadow: 
+    0 0 5px var(--primary),
+    0 0 10px var(--primary),
+    0 0 15px var(--primary),
+    0 0 20px var(--primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
+/* Scanline effect */
+.site-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 0, 0.03) 2px,
+    rgba(0, 255, 0, 0.03) 4px
+  );
+  animation: scanline 2s linear infinite;
+  pointer-events: none;
+}
+
+/* Side lines */
+.site-title::after {
+  content: "— —";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  color: var(--primary);
+  opacity: 0.6;
+  animation: pulseLine 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* Logo text with typing effect */
 .site-title a {
-    font-family: var(--font-heading) !important;
-    font-size: 1.4rem !important;
-    font-weight: 600 !important;
-    color: #00ff00 !important;
-    text-decoration: none !important;
-    display: inline-block !important;
-    position: relative !important;
-    padding: 0 1.2rem !important;
-    letter-spacing: 1px !important;
-    text-transform: uppercase !important;
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  animation: typing 2s steps(20, end), blink 1s infinite;
 }
 
-/* Power flicker effect */
-.site-title a {
-    animation: powerFlicker 8s infinite !important;
-}
-
-@keyframes powerFlicker {
-    0%, 100% {
-        opacity: 1;
-        text-shadow: 
-            0 0 1px rgba(0, 255, 0, 0.8),
-            0 0 2px rgba(0, 255, 0, 0.6),
-            0 0 3px rgba(0, 255, 229, 0.4),
-            0 0 4px rgba(0, 255, 229, 0.2);
-    }
-    /* Quick flicker */
-    10% { opacity: 0.95; }
-    10.1% { opacity: 0.1; }
-    10.2% { opacity: 0.95; }
-    
-    /* Power surge */
-    20% {
-        opacity: 1;
-        text-shadow: 
-            0 0 2px rgba(0, 255, 0, 1),
-            0 0 3px rgba(0, 255, 0, 0.8),
-            0 0 4px rgba(0, 255, 229, 0.6),
-            0 0 6px rgba(0, 255, 229, 0.4);
-    }
-    
-    /* Brief outage */
-    45% { opacity: 1; }
-    45.1% { opacity: 0.3; }
-    45.2% { opacity: 1; }
-    45.3% { opacity: 0.3; }
-    45.4% { opacity: 1; }
-    
-    /* Stable period */
-    46%, 75% {
-        opacity: 1;
-        text-shadow: 
-            0 0 1px rgba(0, 255, 0, 0.8),
-            0 0 2px rgba(0, 255, 0, 0.6),
-            0 0 3px rgba(0, 255, 229, 0.4),
-            0 0 4px rgba(0, 255, 229, 0.2);
-    }
-    
-    /* Final flicker sequence */
-    76% { opacity: 1; }
-    76.1% { opacity: 0.2; }
-    76.2% { opacity: 1; }
-    76.3% { opacity: 0.2; }
-    76.4% { opacity: 1; }
-}
-
-/* Side brackets */
-.site-title a::before,
+/* Blinking cursor */
 .site-title a::after {
-    content: '[' !important;
-    position: absolute !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    color: #00ff00 !important;
-    opacity: 0.8 !important;
-    font-size: 1.4rem !important;
-    animation: powerFlicker 8s infinite !important;
+  content: "|";
+  margin-left: 5px;
+  animation: blink 1s infinite;
+  color: var(--primary);
 }
 
-.site-title a::before {
-    left: 0.2rem !important;
+/* Hover effects */
+.site-title:hover a {
+  animation: triggerGlitch 0.5s ease-in-out;
 }
 
-.site-title a::after {
-    content: ']' !important;
-    right: 0.2rem !important;
+.site-title:hover::after {
+  animation: pulseLine 1s ease-in-out infinite;
 }
 
-/* Cursor */
-.site-title a span::after {
-    content: '|' !important;
-    display: inline-block !important;
-    margin-left: 2px !important;
-    animation: cursorBlink 1s step-end infinite !important;
-    opacity: 0.8 !important;
+/* ==============================
+   Animations
+============================== */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
 }
 
-@keyframes cursorBlink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+@keyframes typing {
+  0% { width: 0; }
+  100% { width: 100%; }
 }
 
-/* Typography improvements for the rest of the site */
-body {
-    font-family: var(--font-body) !important;
-    font-size: var(--font-size-base) !important;
-    line-height: var(--line-height-base) !important;
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
-/* Container width adjustment */
-.container {
-    max-width: var(--container-width) !important;
-    padding: 0 var(--spacing-md) !important;
-    margin: 0 auto !important;
+@keyframes pulseLine {
+  0%, 100% { 
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
 }
 
-/* Section spacing */
-.section {
-    margin-bottom: var(--spacing-lg) !important;
+@keyframes triggerGlitch {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-1px); }
+  80% { transform: translateX(1px); }
+  100% { transform: translateX(0); }
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading) !important;
-    line-height: 1.2 !important;
-    margin-top: var(--spacing-lg) !important;
-    margin-bottom: var(--spacing-md) !important;
-}
-
-/* Post elements */
-.post-title {
-    font-size: var(--font-size-h2) !important;
-    font-weight: 600 !important;
-}
-
-.post-meta {
-    font-size: var(--font-size-small) !important;
-    opacity: 0.8 !important;
-}
-
-.post-excerpt {
-    font-size: var(--font-size-base) !important;
-    line-height: var(--line-height-base) !important;
-}
-
-/* Category cards */
-.category-card {
-    padding: var(--spacing-md) !important;
-}
-
-.category-card h3 {
-    font-size: var(--font-size-h3) !important;
-    margin-bottom: var(--spacing-sm) !important;
-}
-
-.category-description {
-    font-size: var(--font-size-small) !important;
-    margin-bottom: var(--spacing-sm) !important;
-}
-
-/* Navigation */
-.nav-menu {
-    font-size: var(--font-size-small) !important;
-}
-
-/* Search box */
-.search-box input {
-    font-size: var(--font-size-small) !important;
-    padding: var(--spacing-xs) var(--spacing-sm) !important;
-}
-
-/* Responsive adjustments */
+/* ==============================
+   Responsive Logo
+============================== */
 @media (max-width: 768px) {
-    :root {
-        --font-size-base: 10px;
-        --container-width: 100%;
-    }
-    
-    .site-title a {
-        font-size: 1.2rem !important;
-        padding: 0 1rem !important;
-    }
-    
-    .site-title a::before,
-    .site-title a::after {
-        font-size: 1.2rem !important;
-    }
+  .site-title {
+    font-size: 2rem;
+    padding: 1rem 0;
+  }
+  
+  .site-title::after {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+  }
 }
