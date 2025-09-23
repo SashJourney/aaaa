@@ -4,13 +4,13 @@
    Base + Global Scale
 ============================== */
 html {
-  font-size: 14px; /* base scaling */
+  font-size: 13px; /* even smaller base scale */
 }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 0.9rem;
-  line-height: 1.4;
+  font-size: 0.85rem;
+  line-height: 1.3;
   color: var(--text-primary);
   background-color: var(--bg-dark);
   margin: 0;
@@ -38,45 +38,43 @@ body {
    Section Spacing
 ============================== */
 section, .section {
-  padding: 20px 0;
-  margin-bottom: 20px;
+  padding: 15px 0;
+  margin-bottom: 15px;
 }
 
 /* ==============================
    Headings
 ============================== */
-h1 { font-size: 1.6rem; margin: 0 0 10px; }
-h2 { font-size: 1.3rem; margin: 0 0 8px; }
-h3 { font-size: 1.1rem; margin: 0 0 6px; }
-h4, h5, h6 { font-size: 1rem; margin: 0 0 5px; }
+h1 { font-size: 1.4rem; margin: 0 0 8px; }
+h2 { font-size: 1.2rem; margin: 0 0 6px; }
+h3 { font-size: 1rem; margin: 0 0 5px; }
+h4, h5, h6 { font-size: 0.9rem; margin: 0 0 4px; }
 
 /* Section titles with lines */
 h2.section-title {
-  font-size: 1.3rem;
-  margin: 15px 0;
+  font-size: 1.2rem;
+  margin: 12px 0;
   text-align: center;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
 }
-
 h2.section-title::before,
 h2.section-title::after {
   content: "";
-  flex: 1;
+  display: inline-block;
+  width: 30px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  background: var(--primary);
+  margin: 0 8px;
+  vertical-align: middle;
 }
 
 /* ==============================
    Container
 ============================== */
 .container {
-  max-width: 1000px;
+  max-width: 900px; /* smaller max-width */
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 12px;
 }
 
 /* ==============================
@@ -84,73 +82,51 @@ h2.section-title::after {
 ============================== */
 .grid, .category-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* smaller cards */
+  gap: 12px;
 }
 
 .card, .category-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   box-shadow: var(--glow);
-  border-radius: 6px;
-  padding: 12px;
+  border-radius: 4px;
+  padding: 10px;
   text-align: center;
   transition: 0.2s ease;
-  height: fit-content;
 }
 
 .card:hover, .category-card:hover {
   background: var(--bg-card-hover);
   box-shadow: var(--glow-strong);
-  border-color: var(--primary);
-  transform: translateY(-2px);
 }
 
 /* Category card internals */
 .category-icon {
-  font-size: 1.2rem;
-  margin-bottom: 6px;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
   color: var(--primary);
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 6px;
-  border-radius: 50%;
-  background: var(--bg-dark);
-  border: 1px solid var(--border-color);
 }
 
 .category-card h3 {
-  font-size: 1rem;
-  margin-bottom: 4px;
-  color: var(--primary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  margin-bottom: 3px;
 }
 
 .category-description {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--text-secondary);
-  margin-bottom: 6px;
-  line-height: 1.3;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin-bottom: 5px;
+  line-height: 1.2;
 }
 
 .post-count {
-  font-size: 0.7rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 2px 8px;
-  border: 1px solid var(--border-color);
-  border-radius: 3px;
-  color: var(--text-secondary);
-  background: var(--bg-dark);
+  font-size: 0.65rem;
+  display: inline-block;
+  padding: 1px 6px;
+  border: 1px solid var(--primary);
+  border-radius: 2px;
+  color: var(--primary);
 }
 
 /* ==============================
@@ -158,122 +134,75 @@ h2.section-title::after {
 ============================== */
 .terminal-line, code, pre {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   background: #0a0f0a;
-  padding: 6px 10px;
-  border-radius: 4px;
+  padding: 4px 8px;
+  border-radius: 3px;
   display: inline-block;
   color: var(--primary);
-  box-shadow: inset 0 0 5px rgba(0, 255, 0, 0.2);
+  box-shadow: inset 0 0 4px rgba(0, 255, 0, 0.2);
 }
 
 /* ==============================
    Navigation
 ============================== */
 .nav-menu {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   display: flex;
-  gap: 8px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  gap: 6px;
 }
 
 .nav-menu a {
-  padding: 4px 8px;
-  color: var(--text-primary);
-  text-decoration: none;
-  transition: 0.2s ease;
-  border: 1px solid transparent;
-  border-radius: 3px;
-}
-
-.nav-menu a:hover {
-  color: var(--primary);
-  border-color: var(--border-color);
-  box-shadow: var(--glow);
+  padding: 3px 6px;
 }
 
 /* ==============================
    Search Box
 ============================== */
 .search-box {
-  max-width: 160px;
-  position: relative;
+  max-width: 140px;
 }
 
 .search-box input {
-  width: 100%;
-  font-size: 0.8rem;
-  padding: 4px 8px 4px 24px;
-  height: 28px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 3px;
-  color: var(--text-primary);
-  transition: 0.2s ease;
-}
-
-.search-box input:focus {
-  border-color: var(--primary);
-  box-shadow: var(--glow);
-  outline: none;
-}
-
-.search-box::before {
-  content: ">";
-  position: absolute;
-  left: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--primary);
-  font-size: 0.8rem;
-  opacity: 0.7;
+  font-size: 0.75rem;
+  padding: 3px 6px;
+  height: 24px;
 }
 
 /* ==============================
    Footer
 ============================== */
 .site-footer {
-  padding: 15px 0;
-  font-size: 0.8rem;
+  padding: 12px 0;
+  font-size: 0.75rem;
   text-align: center;
   border-top: 1px solid var(--border-color);
-  margin-top: 30px;
 }
 
 /* ==============================
    Responsive
 ============================== */
 @media (max-width: 768px) {
-  html { font-size: 13px; }
+  html { font-size: 12px; }
 
-  h1 { font-size: 1.4rem; }
-  h2 { font-size: 1.2rem; }
-  h3 { font-size: 1rem; }
+  h1 { font-size: 1.3rem; }
+  h2 { font-size: 1.1rem; }
+  h3 { font-size: 0.9rem; }
 
   .grid, .category-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   }
 
   .card, .category-card {
-    padding: 10px;
+    padding: 8px;
   }
 
   section, .section {
-    padding: 15px 0;
-    margin-bottom: 15px;
+    padding: 12px 0;
+    margin-bottom: 12px;
   }
 
   .container {
-    padding: 0 10px;
-  }
-
-  .nav-menu {
-    gap: 6px;
-  }
-
-  .nav-menu a {
-    padding: 3px 6px;
+    padding: 0 8px;
   }
 }
