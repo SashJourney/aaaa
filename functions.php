@@ -31,14 +31,14 @@ add_action('after_setup_theme', function() {
 add_action('wp_enqueue_scripts', function() {
     $ver = wp_get_theme()->get('Version') ?: '2.0.0';
     
-    // Styles
-    wp_enqueue_style('hackernull-style', get_stylesheet_uri(), [], $ver);
-    wp_enqueue_style('hackernull-logo', get_template_directory_uri() . '/logo.css', [], $ver);
-    wp_enqueue_style('hackernull-anim', get_template_directory_uri() . '/animation.css', [], $ver);
+    // Styles - using get_theme_file_uri for better reliability
+    wp_enqueue_style('hackernull-style', get_theme_file_uri('style.css'), [], $ver);
+    wp_enqueue_style('hackernull-logo', get_theme_file_uri('logo.css'), [], $ver);
+    wp_enqueue_style('hackernull-anim', get_theme_file_uri('animation.css'), [], $ver);
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css', [], '6.0.0');
     
     // Scripts
-    wp_enqueue_script('hackernull-script', get_template_directory_uri() . '/script.js', ['jquery'], $ver, true);
+    wp_enqueue_script('hackernull-script', get_theme_file_uri('script.js'), ['jquery'], $ver, true);
     
     // Localize script for AJAX
     wp_localize_script('hackernull-script', 'HN', [
@@ -128,7 +128,7 @@ function hn_get_category_posts($cat_id, $count = 6) {
 // Newsletter Functionality
 // ==============================
 // Create subscribers table on theme activation
-register_activation_hook(__FILE__, function() {
+add_action('after_switch_theme', function() {
     global $wpdb;
     $table = $wpdb->prefix . 'hn_subscribers';
     $charset = $wpdb->get_charset_collate();
