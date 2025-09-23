@@ -103,17 +103,18 @@ function hackernull_scripts() {
         .category-grid {
             display: grid !important;
             grid-template-columns: repeat(3, minmax(140px, 1fr)) !important;
-            gap: 1.5rem !important;
+            gap: 0.75rem !important;
             position: relative !important;
-            margin: 2rem 0 3rem !important;
+            margin: 1rem 0 !important;
             width: 100% !important;
-            padding: 0 2rem !important;
+            padding: 0 !important;
+            place-items: start !important; /* Prevent vertical stretching */
         }
 
         .category-card {
             background: rgba(0, 0, 0, 0.6) !important;
-            padding: 1.5rem !important;
-            border-radius: 8px !important;
+            padding: 0.75rem !important;
+            border-radius: 4px !important;
             text-decoration: none !important;
             color: var(--text-primary) !important;
             transition: all 0.3s ease !important;
@@ -124,10 +125,12 @@ function hackernull_scripts() {
             text-align: center !important;
             position: relative !important;
             overflow: hidden !important;
-            min-height: 180px !important;
+            min-height: auto !important;
+            height: fit-content !important;
             justify-content: flex-start !important;
             backdrop-filter: blur(10px) !important;
-            gap: 0.75rem !important;
+            gap: 0.5rem !important;
+            width: 100% !important;
         }
 
         .category-card::before {
@@ -149,8 +152,8 @@ function hackernull_scripts() {
 
         .category-icon {
             flex-shrink: 0 !important;
-            width: 48px !important;
-            height: 48px !important;
+            width: 32px !important;
+            height: 32px !important;
             background: var(--bg-dark) !important;
             border-radius: 50% !important;
             display: flex !important;
@@ -160,6 +163,7 @@ function hackernull_scripts() {
             position: relative !important;
             z-index: 2 !important;
             transition: all 0.3s ease !important;
+            margin-bottom: 0.25rem !important;
         }
 
         .category-icon::after {
@@ -188,15 +192,16 @@ function hackernull_scripts() {
         }
 
         .category-card h3 {
-            font-size: 0.95rem !important;
-            margin: 0.75rem 0 0.35rem !important;
+            font-size: 0.8rem !important;
+            margin: 0 !important;
             color: var(--primary) !important;
             font-family: 'Courier New', monospace !important;
             position: relative !important;
             display: inline-block !important;
             text-transform: uppercase !important;
-            letter-spacing: 1px !important;
+            letter-spacing: 0.5px !important;
             z-index: 2 !important;
+            line-height: 1.2 !important;
         }
 
         .category-card h3::before {
@@ -211,14 +216,15 @@ function hackernull_scripts() {
 
         .category-description {
             color: var(--text-secondary) !important;
-            font-size: 0.8rem !important;
-            line-height: 1.4 !important;
-            margin-bottom: 0.75rem !important;
+            font-size: 0.7rem !important;
+            line-height: 1.3 !important;
+            margin: 0.25rem 0 !important;
             display: -webkit-box !important;
             -webkit-line-clamp: 2 !important;
             -webkit-box-orient: vertical !important;
             overflow: hidden !important;
             z-index: 2 !important;
+            max-height: 2.6em !important;
         }
 
         .post-count {
