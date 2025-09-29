@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/hackvarg/public_html/wp-content/themes/hackernull-theme/
+    - /bin/cp -R * $DEPLOYPATH
