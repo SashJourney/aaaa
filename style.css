@@ -7,6 +7,32 @@ Version: 1.4
 Text Domain: hackernull-theme
 */
 
+/* FORCE SCALING - OVERRIDE EVERYTHING */
+* {
+    font-size: 13px !important;
+    max-width: 900px !important;
+}
+
+html {
+    font-size: 13px !important;
+    transform: scale(0.9) !important;
+    transform-origin: top center !important;
+}
+
+body {
+    font-size: 0.875rem !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+}
+
+.container {
+    max-width: 900px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 1rem !important;
+    border: 1px solid red !important; /* Temporary to see if it works */
+}
+
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
