@@ -34,6 +34,75 @@ function hackernull_scripts() {
     wp_enqueue_style('hackernull-style', get_stylesheet_uri(), array(), '1.4');
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css', array(), '6.0.0');
     
+    // Add essential inline CSS to ensure dark theme loads
+    $custom_css = "
+        :root {
+            --primary: #00ff00;
+            --primary-hover: #00cc00;
+            --primary-glow: #00ff0033;
+            --bg-dark: #000000;
+            --bg-card: #0a0f0a;
+            --bg-card-hover: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --border-color: rgba(0, 255, 0, 0.1);
+            --glow: 0 0 10px rgba(0, 255, 0, 0.2);
+            --glow-strong: 0 0 20px rgba(0, 255, 0, 0.4);
+            --terminal-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+            --card-bg: linear-gradient(145deg, #0a0f0a, #111111);
+            --card-bg-hover: linear-gradient(145deg, #111111, #0a0f0a);
+            --terminal-prompt: '> ';
+            --scanline-color: rgba(0, 255, 0, 0.1);
+            --matrix-bg: linear-gradient(45deg, transparent, var(--primary-glow), transparent);
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 2rem;
+            --border-radius: 8px;
+        }
+
+        body {
+            background: var(--bg-dark) !important;
+            color: var(--text-primary) !important;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+            line-height: 1.6 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .container {
+            width: 100% !important;
+            max-width: 900px !important;
+            margin: 0 auto !important;
+            padding: 0 1rem !important;
+        }
+
+        .card {
+            background: var(--bg-card) !important;
+            border: 1px solid var(--border-color) !important;
+            border-radius: var(--border-radius) !important;
+            padding: 1.5rem !important;
+            margin-bottom: 1rem !important;
+            box-shadow: var(--terminal-shadow) !important;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary) !important;
+            font-family: 'Courier New', monospace !important;
+            text-shadow: var(--glow) !important;
+        }
+
+        a {
+            color: var(--primary) !important;
+            text-decoration: none !important;
+        }
+
+        a:hover {
+            color: var(--primary-hover) !important;
+        }
+    ";
+    
+    wp_add_inline_style('hackernull-style', $custom_css);
+    
     // Scripts
     wp_enqueue_script('hackernull-script', get_template_directory_uri() . '/script.js', array('jquery'), '1.0.0', true);
 }
